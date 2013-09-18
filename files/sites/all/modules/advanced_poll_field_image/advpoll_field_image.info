@@ -1,0 +1,7 @@
+name = Advanced Poll Field Image
+description = Add Image to Advanced Poll Field 
+package = Voting
+version = 7.x-1.0
+core = 7.x
+dependencies[] = advpoll_field
+stylesheets[all][] = advpoll_field_image.css

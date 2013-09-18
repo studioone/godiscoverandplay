@@ -1,0 +1,1 @@
+window.CKEDITOR_BASEPATH = '/profiles/openpublish/libraries/ckeditor/';

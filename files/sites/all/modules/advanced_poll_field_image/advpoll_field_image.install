@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function advpoll_field_image_schema() {
+  $schema = array();
+  
+  $schema['advpoll_choice_image'] = array(
+    'fields' => array(
+      'choice_id' => array(
+        'type' => 'varchar',
+        'length' => 10,
+        'not null' => TRUE,
+      ),
+      'fid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+      ),
+    ),
+    'primary key' => array('choice_id'),
+  );
+
+  return $schema;
+}

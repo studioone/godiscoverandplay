@@ -1,0 +1,359 @@
+<?php
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function advpoll_field_image_field_widget_advpoll_write_in_form_alter(&$element, &$form_state, $context) {
+  $default_value = advpoll_field_image_image_load($element['choice_id']['#default_value']);
+
+  $element['image'] = array(
+    '#type' => 'managed_file',
+    '#title' => t('Image'),
+    '#default_value' => $default_value ? $default_value : 0,
+    // TODO: Do not hardwire image location
+    '#upload_location' => 'public://advpoll/advpoll-field-image',
+    '#upload_validators' => array(
+      'file_validate_is_image' => array(),
+      'file_validate_extensions' => array('png gif jpg jpeg'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_theme().
+ */
+function advpoll_field_image_theme($existing, $type, $theme, $path) {
+  return array(
+    // Theme image output
+    'advpoll_field_image_image' => array(
+      'variables' => array('fid' => NULL, 'choice_text' => NULL),
+    ),
+    // Override / Add suggestion for advpoll choice form template
+    // TODO: is this the best way?
+    'advpoll_choice_form' => array(
+      'render element' => 'form',
+      'path' => drupal_get_path('module', 'advpoll_field_image') . '/templates',
+      'template' => 'advpoll-choice-form',
+    ),
+    // Override / Add suggestion for advpoll bar template
+    // TODO: is this the best way?
+    'advpoll_bar' => array(
+      'variables' => array(
+        'percentage' => 0,
+        'votes' => 0,
+        'voted' => 0
+      ),
+      'path' => drupal_get_path('module', 'advpoll_field_image') . '/templates',
+      'template' => 'advpoll-bar',
+    ),
+    'advpoll_results' => array(
+      'variables' => array(
+        'bars' => NULL,
+        'total' => 0,
+        'voted' => NULL,
+        'nid' => NULL,
+        'cancel_form' => NULL
+      ),
+      'path' => drupal_get_path('module', 'advpoll_field_image') . '/templates',
+      'template' => 'advpoll-results'
+    ),
+  );
+}
+
+/**
+ * Return image html.
+ */
+function theme_advpoll_field_image_image($variables) {
+  $fid = $variables['fid'];
+  $choice_text = isset($variables['choice_text']) ? $variables['choice_text'] : '';
+
+  if (!$fid) {
+    return '';
+  }
+
+  $file = file_load($fid);
+  return ' ' . theme('image_style', array(
+    'style_name' => variable_get('advpoll_field_image_style', 'poll-image'),
+    'path' => $file->uri,
+    'title' => $choice_text,
+    'alt' => "$choice_text image",
+    'attributes' => array(
+      'class' => array('image', 'choice-image'),
+    ),
+  ));
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function advpoll_field_image_node_update($node) {
+  if ($node->type == 'advpoll') {
+    advpoll_field_image_choices_save($node);
+  }
+}
+
+/**
+ * Implements hook_node_insert().
+ */
+function advpoll_field_image_node_insert($node) {
+  if ($node->type == 'advpoll') {
+    advpoll_field_image_choices_save($node);
+  }
+}
+
+/**
+ * Save choices images.
+ */
+function advpoll_field_image_choices_save($node) {
+  $lang = advpoll_field_image_get_choices_lang($node);
+
+  $new_images = array();
+  foreach ($node->advpoll_choice[$lang] as $choice) {
+    if ($choice['image']) {
+      $new_images[$choice['choice_id']] = $choice['image'];
+    }
+  }
+
+  $old_images = array();
+  if (isset($node->original)) {
+    foreach ($node->original->advpoll_choice[$lang] as $choice) {
+      if ($choice['image']) {
+        $old_images[$choice['choice_id']] = $choice['image'];
+      }
+    }
+  }
+
+  // Delete images, that existed in the old node, but do not exist in the new node
+  foreach ($old_images as $choice_id => $image) {
+    if (!isset($new_images[$choice_id])) {
+      advpoll_field_image_image_delete($choice_id);
+    }
+  }
+
+  foreach ($new_images as $choice_id => $image) {
+    // Delete images, that has changed in the new node
+    if (isset($old_images[$choice_id]) && $old_images[$choice_id] != $image) {
+      advpoll_field_image_image_delete($choice_id);
+    }
+
+    // Add images, which were not in the old node
+    if (!isset($old_images[$choice_id])) {
+      advpoll_field_image_image_add($node->nid, $choice_id, $image);
+    }
+  }
+}
+
+/**
+ * Implements hook_node_delete().
+ */
+function advpoll_field_image_node_delete($node) {
+  if ($node->type == 'advpoll') {
+    $lang = advpoll_field_image_get_choices_lang($node);
+    foreach ($node->advpoll_choice[$lang] as $choice) {
+      advpoll_field_image_image_delete($choice['choice_id']);
+    }
+  }
+}
+
+/**
+ * Implements hook_field_attach_load().
+ */
+function advpoll_field_image_field_attach_load($entity_type, $entities, $age, $options) {
+  if ($entity_type == 'node') {
+    // Find choice ids
+    $choice_ids = array();
+    foreach ($entities as $node) {
+      if ($node->type == 'advpoll') {
+        $lang = advpoll_field_image_get_choices_lang($node);
+        foreach ($node->advpoll_choice[$lang] as $choice) {
+          $choice_ids[] = $choice['choice_id'];
+        }
+      }
+    }
+
+    // Add data to nodes
+    if ($choice_ids) {
+      $images = advpoll_field_image_image_load_multiple($choice_ids);
+      foreach ($entities as &$node) {
+        if ($node->type == 'advpoll') {
+          $lang = advpoll_field_image_get_choices_lang($node);
+          foreach ($node->advpoll_choice[$lang] as &$choice) {
+            $choice['image'] = isset($images[$choice['choice_id']]) ? $images[$choice['choice_id']] : 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Return choices language.
+ */
+function advpoll_field_image_get_choices_lang($node) {
+  $lang = $node->language;
+  if (!isset($node->advpoll_choice[$lang])) {
+    $lang = 'und';
+  }
+  return $lang;
+}
+
+/**
+ * Return image fid by choice id.
+ */
+function advpoll_field_image_image_load($choice_id) {
+  return db_select('advpoll_choice_image', 'aci')
+    ->fields('aci', array('fid'))
+    ->condition('choice_id', $choice_id)
+    ->execute()
+    ->fetchField();
+}
+
+/**
+ * Return images by choice ids
+ */
+function advpoll_field_image_image_load_multiple($choice_ids) {
+  return db_select('advpoll_choice_image', 'aci')
+    ->fields('aci', array('choice_id', 'fid'))
+    ->condition('choice_id', $choice_ids, 'IN')
+    ->execute()
+    ->fetchAllKeyed();
+}
+
+/**
+ * Delete image file and relation by choice id.
+ */
+function advpoll_field_image_image_delete($choice_id) {
+  $image = advpoll_field_image_image_load($choice_id);
+  if ($image) {
+    // Delete file
+    $file = file_load($image);
+    file_usage_delete($file, 'advpoll_field_image');
+    file_delete($file);
+
+    // Delete relation
+    db_delete('advpoll_choice_image')
+      ->condition('choice_id', $choice_id)
+      ->execute();
+  }
+}
+
+/**
+ * Change file status and add relation.
+ */
+function advpoll_field_image_image_add($nid, $choice_id, $image) {
+  if (!$image || !$choice_id) {
+    return FALSE;
+  }
+
+  db_insert('advpoll_choice_image')
+    ->fields(array(
+      'choice_id' => $choice_id,
+      'fid' => $image,
+    ))
+    ->execute();
+
+  $file = file_load($image);
+  $file->status = FILE_STATUS_PERMANENT;
+  file_save($file);
+  file_usage_add($file, 'advpoll_field_image', 'node', $nid);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function advpoll_field_image_form_advpoll_choice_form_alter(&$form, &$form_state, $form_id) {
+  // Add choice images to form, designed to be accessed and themed at the template level.
+  // Image keys correspond to choice keys.
+
+  // Get images for this poll
+  $node = $form_state['build_info']['args'][0];
+  $lang = advpoll_field_image_get_choices_lang($node);
+  $images = array();
+  foreach ($node->advpoll_choice[$lang] as $choice) {
+    if ($choice['image']) {
+      $images[$choice['choice']] = $choice['image'];
+    }
+  }
+
+  // Return if we don't have any images set
+  if (empty($images)) {
+    return;
+  }
+
+  // Alter form
+  foreach (element_children($form) as $key) {
+    if ($form[$key]['#type'] == 'radios' || $form[$key]['#type'] == 'checkboxes') {
+      foreach ($form[$key]['#options'] as $option_value => &$option_text) {
+        $form['images'][$option_value]['#markup'] = theme('advpoll_field_image_image', array('fid' => $images[$option_value], 'choice_text' => $option_text));
+      }
+    }
+  }
+}
+
+/**
+ * Assign the elements of the form to variables so
+ * the themer can use those values to control how the
+ * form elements are displayed, or alternatively
+ * displaying the whole form as constructed above.
+ * @see Pro Drupal Development
+ */
+function template_preprocess_advpoll_choice_form(&$variables) {
+  $hidden = array();
+  // Provide variables named after form keys so themers can print each element independently.
+  foreach (element_children($variables['form']) as $key) {
+    $type = isset($variables['form'][$key]['#type']) ? $variables['form'][$key]['#type'] : '';
+
+    // Choices are badly keyed in advpoll choice form... we want to re-key them so they are easy to find.
+    // TODO: get these keys fixed in advpoll module
+    $new_key = $key;
+    if ($type == 'radios' || $type == 'checkboxes') {
+      $new_key = 'choices';
+    }
+
+    // Put all the hidden stuff together
+    if ($type == 'hidden' || $type == 'token') {
+      $hidden[] = drupal_render($variables['form'][$key]);
+    }
+
+    // Deal with elements that have child elements
+    elseif (element_children($variables['form'][$key])) {
+      // Render each child individually
+      foreach (element_children($variables['form'][$key]) as $child_key) {
+        $variables[$new_key][$child_key] = drupal_render($variables['form'][$key][$child_key]);
+      }
+    }
+    else {
+      $variables[$new_key] = drupal_render($variables['form'][$key]);
+    }
+  }
+
+  // Hidden form elements have no value to themers. No need for separation.
+  $variables['hidden'] = implode($hidden);
+}
+
+/**
+ * Preprocess function for advpoll-bar.tpl.php
+ */
+function advpoll_field_image_preprocess_advpoll_bar(&$vars) {
+  // Ideally, theme_advpoll_bar() would be passed $nid and $choice_id, which would
+  // allow us to get and pass the proper image directly here, rather than this placeholder hash.
+  $vars['image_placeholder'] = '<!-- advpoll-image-' . md5($vars['title']) . ' -->';
+}
+
+/**
+ * Preprocess function for advpoll-results.tpl.php
+ */
+function advpoll_field_image_preprocess_advpoll_results(&$vars) {
+  // We wouldn't need to implement this function if we could pass the image directly in
+  // advpoll_field_image_preprocess_advpoll_bar()
+  $node = node_load($vars['nid']);
+  $lang = advpoll_field_image_get_choices_lang($node);
+
+  foreach ($node->advpoll_choice[$lang] as $delta => $choice) {
+    $vars['bars'] = str_replace(
+      '<!-- advpoll-image-' . md5($choice['choice']) . ' -->',
+      theme('advpoll_field_image_image', array('fid' => $choice['image'], 'choice_text' => $choice['choice'])),
+      $vars['bars']
+    );
+  }
+}

@@ -1,0 +1,12 @@
+.advpoll-field-image-choice-form .choice {
+  display: table;
+}
+
+.advpoll-field-image-choice-form .choice-image {
+  display: table-cell;
+}
+
+.advpoll-field-image-choice-form .choice-text {
+  display: table-cell;
+  vertical-align: middle;
+}
