@@ -1449,21 +1449,44 @@ color: #fff;
 /* Sidebar blocks */
 
 #block-views-quicktip-block h2{
- font-size: 20px;
- font-weight: bold;
- color: 6e6868;
- background: url(images/quick-tip-icon.png) no-repeat;
- padding-left: 35px;
- padding-bottom: 25px
+font-size: 1.5em !Important;
+border-bottom: 3px solid #cecfca;
+padding-left: 50px;
+background: url(images/quick-tip-icon.png) left 5px top no-repeat;
+background-size: 32px;
+padding-bottom: 5px;
+margin: 0 10px;
 }
 
+#block-block-5 h2{
+font-size: 1.5em !Important;
+border-bottom: 3px solid #cecfca;
+padding-left: 50px;
+background: url(images/hec.png) left 5px top no-repeat;
+background-size: 32px;
+padding-bottom: 5px;
+margin: 0 10px;
+}
+
+#block-block-6 h2{
+font-size: 1.5em !Important;
+border-bottom: 3px solid #cecfca;
+padding-left: 50px;
+background: url(images/follow-us.png) left 5px top no-repeat;
+background-size: 32px;
+padding-bottom: 5px;
+margin: 0 10px;
+}
+
+
 #block-poll-recent h2{
- font-size: 20px;
- font-weight: bold;
- color: 6e6868;
- background: url(images/poll-icon.png) no-repeat;
- padding-left: 35px;
- padding-bottom: 25px
+font-size: 1.5em !Important;
+border-bottom: 3px solid #cecfca;
+padding-left: 50px;
+background: url(images/poll-icon.png) left 5px top no-repeat;
+background-size: 32px;
+padding-bottom: 5px;
+margin: 0 10px;
 }
 
 
