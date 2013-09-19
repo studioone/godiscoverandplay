@@ -14,7 +14,7 @@
  *
  */
 ?>
-<div class="poll advpoll" id="advpoll-<?php print $nid; ?>">
+<div class="poll advpoll image-poll-result" id="advpoll-<?php print $nid; ?>">
 <span class="vs-image"></span>
     <?php print $bars; ?>
     <div class="total"><?php print t('Total votes: @total', array('@total' => $total)); ?></div>

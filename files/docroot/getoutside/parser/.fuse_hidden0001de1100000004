@@ -1,0 +1,109 @@
+<?php
+
+require_once 'simple_html_dom.php';
+
+/**
+ * Parse converted html content from odt file into a json file to be used on the app
+ *
+ * @author Darkunz
+ */
+class Parser
+{
+
+	private $_file;
+
+	/**
+	 * @param String $file
+	 */
+	public function __construct($file)
+	{
+		if (!file_exists($file)) throw new Exception('File not found!');
+
+		$this->_file = $file;
+	}
+
+	/**
+	 * Save parsed json content to the specified location
+	 * 
+	 * @param String $location 
+	 */
+	public function save($location = 'content.json')
+	{
+		$html = file_get_html($this->_file);
+
+		$results = array();
+
+		foreach ($html->find('.No_20_Spacing') as $city) {
+
+			$items = array();
+
+			$cityName = $this->cleanCityName( $city->text() );
+			
+			$activity = $city->next_sibling();
+
+			if (!$activity || $activity->tag != 'ul') continue;
+
+			$activityName = $activity->find('span', 1)->text();
+			$activityName = $this->clean($activityName);
+
+			if ($activityName == 'Strength Training')
+				$activityName = 'Strength';
+
+			$contents = $activity->next_sibling();
+
+			if ($contents->tag != 'ol') continue;
+
+			foreach ($contents->find('li') as $content) {
+				$content->find('span', 0)->innertext = '';
+				$text = $this->clean( $content->text() );
+				$links = array();
+
+				foreach ($content->find('a') as $link) {
+					$links[] = array(
+						'text' => $link->innertext,
+						'url' => $link->href,
+					);
+				}
+
+				$results[] = array(
+					'imageCls' => '',
+					'content' => $text,
+					'urls' => $links,
+					'city' => $cityName,
+					'activity' => $activityName,
+				);
+			}
+		}
+
+		file_put_contents($location, json_encode($results));
+	}
+
+	/**
+	 * Clean city name 
+	 *
+	 * @param String $name
+	 * @return String
+	 */
+	protected function cleanCityName($name)
+	{
+		$name = preg_replace('/City\s\d+\:\s(.*)/', '${1}', $name);
+		return $this->clean($name);
+	}
+
+	/**
+	 * Remove special characters from text
+	 * 
+	 * @param String $text
+	 * @return String
+	 */
+	protected function clean($text) 
+	{
+		// $text = trim($text);
+		// $text = trim($text);
+		// $text = trim($text);
+
+		$text = preg_replace("/&#?[a-z0-9]{2,8};/i","", $text);
+		return $text;
+	}
+
+}

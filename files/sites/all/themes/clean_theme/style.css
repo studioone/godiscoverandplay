@@ -1695,3 +1695,8 @@ border: 0 !important;
 text-indent: -999px;
 padding: 2px 33px;
 }
+
+.view-image-poll-list .field-name-body {
+  padding-top: 10px;
+  display: none;
+}

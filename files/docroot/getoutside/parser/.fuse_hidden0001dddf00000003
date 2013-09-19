@@ -1,0 +1,81 @@
+<?php
+
+require_once 'simple_html_dom.php';
+
+/**
+ *
+ */
+class Parser
+{
+
+	private $_file;
+
+	/**
+	 * @param String $file
+	 */
+	public function __construct($file)
+	{
+		if (!file_exists($file)) throw new Exception('File not found!');
+
+		$this->_file = $file;
+	}
+
+	/**
+	 *
+	 */
+	public function save($location)
+	{
+		$html = file_get_html($this->_file);
+
+		$results = array();
+
+		foreach ($html->find('.No_20_Spacing') as $city) {
+
+			$items = array();
+
+			$cityName = $this->cleanCityName( $city->text() );
+			
+			$activity = $city->next_sibling();
+
+			if (!$activity || $activity->tag != 'ul') continue;
+
+			$activityName = $activity->find('span', 1)->text();
+
+			if ($activityName == 'Strength Training')
+				$activityName = 'Strength';
+
+			$contents = $activity->next_sibling();
+
+			if ($contents->tag != 'ol') continue;
+
+			foreach ($contents->find('li') as $content) {
+				$text = $content->find('span', 0)->innertext = '';
+				$links = array();
+
+				foreach ($content->find('a') as $link) {
+					$links[] = array(
+						'text' => $link->innertext,
+						'url' => $link->href,
+					);
+				}
+
+				$results[] = array(
+					'imageCls' => '',
+					'content' => $text,
+					'urls' => $links,
+					'city' => $cityName,
+					'activity' => $activityName,
+				);
+			}
+		}
+
+		file_put_contents($location, json_encode($results));
+	}
+
+
+	protected function cleanCityName($name)
+	{
+		return preg_replace('/City\s\d+\:\s(.*)/', '${1}', $results);
+	}
+
+}

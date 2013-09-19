@@ -1,0 +1,2928 @@
+[
+    {
+        "image": "CARDIO/walk.gif",
+        "content": "Walk across the  Golden Gate Bridge",
+        "urls": [
+            {
+                "text": "Golden Gate Bridge",
+                "url": "http://www.goldengatebridge.org/"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": "Run or hike through  Golden Gate Park",
+        "urls": [
+            {
+                "text": "Golden Gate Park",
+                "url": "http://www.golden-gate-park.com/"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/jumping.gif",
+        "content": "Jump on a trampoline at  House of Air",
+        "urls": [
+            {
+                "text": "House of Air",
+                "url": "http://www.houseofair.com/"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/hike.gif",
+        "content": "Hike with a view on  Land’s End Trial",
+        "urls": [
+            {
+                "text": "Land’s End Trial",
+                "url": "http://www.parksconservancy.org/visit/park-sites/lands-end.html"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/summit.gif",
+        "content": "Reach the summit of  Bernal Heights Hill",
+        "urls": [
+            {
+                "text": "Bernal Heights Hill",
+                "url": "http://sfrecpark.org/destination/bernal-heights-park/"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Cardio"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": "Row or paddle a boat around  Stow Lake",
+        "urls": [
+            {
+                "text": "Stow Lake",
+                "url": "http://www.stowlakeboathouse.com/"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/walk.gif",
+        "content": "Walk up the  Filbert Steps to  Coit Tower",
+        "urls": [
+            {
+                "text": "Filbert Steps",
+                "url": "http://www.tripadvisor.com/Attraction_Review-g60713-d142463-Reviews-Filbert_Steps-San_Francisco_California.html"
+            },
+            {
+                "text": "Coit Tower",
+                "url": "http://sfrecpark.org/destination/telegraph-hill-pioneer-park/coit-tower/"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": " Kayak on the bay",
+        "urls": [
+            {
+                "text": "Kayak",
+                "url": "http://www.citykayak.com/"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/climb.gif",
+        "content": "Rock climb on  Beaver St.",
+        "urls": [
+            {
+                "text": "Beaver St.",
+                "url": "http://www.rockclimbing.com/routes/North_America/United_States/California/San_Francisco_Bay/Beaver_St_/"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/run.gif",
+        "content": "Run up the  Lyon Street Steps",
+        "urls": [
+            {
+                "text": "Lyon Street Steps",
+                "url": "http://www.yelp.com/biz/lyon-street-steps-san-francisco#query:outdoor exercise"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Strength"
+    },
+    {
+        "image": "ENERGIZE/picnic.gif",
+        "content": "Picnic in  Mission Dolores Park",
+        "urls": [
+            {
+                "text": "Mission Dolores Park",
+                "url": "http://sfrecpark.org/destination/mission-dolores-park/"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/yoga.gif",
+        "content": "Go on a  yoga hike through the city",
+        "urls": [
+            {
+                "text": "yoga hike",
+                "url": "http://www.hikingyoga.com/"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/sunbathe.gif",
+        "content": "Sunbathe at  Baker Beach",
+        "urls": [
+            {
+                "text": "Baker Beach",
+                "url": "http://www.parksconservancy.org/visit/park-sites/baker-beach.html"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/park.gif",
+        "content": "Relax in  Yerba Buena Park",
+        "urls": [
+            {
+                "text": "Yerba Buena Park",
+                "url": "http://www.yelp.com/biz/yerba-buena-gardens-san-francisco#query:yerba%20buena%20park"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/sunset.gif",
+        "content": "Watch the sunset at  Grand View Park",
+        "urls": [
+            {
+                "text": "Grand View Park",
+                "url": "http://sfrecpark.org/destination/grand-view-park/"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Energize"
+    },
+    {
+        "image": "EXPERIENCE/circus.gif",
+        "content": "Try out trapeze, miming, and other circus skills at the  Circus Center",
+        "urls": [
+            {
+                "text": "Circus Center",
+                "url": "http://circuscenter.org/"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Stroll through the  Japanese Tea Garden",
+        "urls": [
+            {
+                "text": "Japanese Tea Garden",
+                "url": "http://www.japaneseteagardensf.com/"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/alcatraz.gif",
+        "content": "Explore  Alcatraz Island",
+        "urls": [
+            {
+                "text": "Alcatraz Island",
+                "url": "http://www.nps.gov/alca/index.htm"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/ticket.gif",
+        "content": "Catch a ride on a  cable car",
+        "urls": [
+            {
+                "text": "cable car",
+                "url": "http://www.sfcablecar.com/"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/garden.gif",
+        "content": "Volunteer at  Fort Mason Community Garden",
+        "urls": [
+            {
+                "text": "Fort Mason Community Garden",
+                "url": "http://www.fortmasoncommunitygarden.com/index.html"
+            }
+        ],
+        "city": "San Francisco",
+        "activity": "Experience"
+    },
+    {
+        "image": "CARDIO/hike.gif",
+        "content": "Hike in  Griffith Park to the  Griffith Observatory",
+        "urls": [
+            {
+                "text": "Griffith Park",
+                "url": "http://www.laparks.org/dos/parks/griffithpk"
+            },
+            {
+                "text": "Griffith Observatory",
+                "url": "http://www.griffithobs.org/"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": "Go for a run in  Runyon Griffith Park",
+        "urls": [
+            {
+                "text": "Runyon Griffith Park",
+                "url": "http://runyoncanyon-losangeles.com/"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/jumping.gif",
+        "content": "Rent a moonbounce in  Lake Balboa",
+        "urls": [
+            {
+                "text": "Lake Balboa",
+                "url": "http://www.laparks.org/dos/aquatic/balboa/rentals_resr.htm"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/walk.gif",
+        "content": "Walk Mulholland Drive through  Topanga State Park",
+        "urls": [
+            {
+                "text": "Topanga State Park",
+                "url": "http://www.parks.ca.gov/?page_id=629"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/rollerblade.gif",
+        "content": "Rollerblade down the  Santa Monica Bike Path",
+        "urls": [
+            {
+                "text": "Santa Monica Bike Path",
+                "url": "http://www.labikepaths.com/bike-paths/santa-monica-venice/"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Cardio"
+    },
+    {
+        "image": "STRENGTH/weights.gif",
+        "content": "Pump some iron at  Muscle Beach",
+        "urls": [
+            {
+                "text": "Muscle Beach",
+                "url": "http://www.musclebeach.net/"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/hike.gif",
+        "content": "Hike up the  Hollyrigde Trail to the Hollywood Sign",
+        "urls": [
+            {
+                "text": "Hollyrigde Trail",
+                "url": "http://hollywoodsigntrip.com/hollywood-sign-trail.shtml"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/horse.gif",
+        "content": "Ride on horseback through  Will Roger’s Park",
+        "urls": [
+            {
+                "text": "Will Roger’s Park",
+                "url": "http://www.parks.ca.gov/?page_id=626"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/walk.gif",
+        "content": "Walk up the stairs in the  Big Wild",
+        "urls": [
+            {
+                "text": "Big Wild",
+                "url": "http://www.lamag.com/features/2011/06/01/10-great-walks-stairway-climb"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": " Paddleboard at  Marina del Ray",
+        "urls": [
+            {
+                "text": "Paddleboard",
+                "url": "http://www.venicepaddleboards.com/"
+            },
+            {
+                "text": "Marina del Ray",
+                "url": "http://www.visitmarinadelrey.com/outdoor-recreation/on-the-water"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Strength"
+    },
+    {
+        "image": "ENERGIZE/relax.gif",
+        "content": "Relax at  Leo Carrillo State Beach",
+        "urls": [
+            {
+                "text": "Leo Carrillo State Beach",
+                "url": "http://www.parks.ca.gov/?page_id=616"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/picnic.gif",
+        "content": "Picnic at  Roxbury Park",
+        "urls": [
+            {
+                "text": "Roxbury Park",
+                "url": "http://www.beverlyhills.org/exploring/cityparks/roxburypark/"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/yoga.gif",
+        "content": "Do yoga in a botanic garden at  The Arboretum",
+        "urls": [
+            {
+                "text": "The Arboretum",
+                "url": "http://www.arboretum.org/"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/bench.gif",
+        "content": "Sit on bench in  The Japanese Garden",
+        "urls": [
+            {
+                "text": "The Japanese Garden",
+                "url": "http://www.thejapanesegarden.com/"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/garden.gif",
+        "content": "Smell the flowers at Exposition Rose Garden",
+        "urls": [
+            {
+                "text": "Exposition Rose Garden",
+                "url": "http://www.laparks.org/exporosegarden/rosegarden.htm"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Energize"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Stroll the  Santa Monica Pier",
+        "urls": [
+            {
+                "text": "Santa Monica Pier",
+                "url": "http://santamonicapier.org/"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Explore  The Getty",
+        "urls": [
+            {
+                "text": "The Getty",
+                "url": "http://www.getty.edu/"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Walk down  Universal Studios CityWalk",
+        "urls": [
+            {
+                "text": "Universal Studios CityWalk",
+                "url": "http://www.citywalkhollywood.com/"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": " Go historical at  El Pueblo de Los Angeles",
+        "urls": [
+            {
+                "text": "El Pueblo de Los Angeles",
+                "url": "http://elpueblo.lacity.org/"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/watch.gif",
+        "content": "People watch at  Venice Beach",
+        "urls": [
+            {
+                "text": "Venice Beach",
+                "url": "http://www.laparks.org/venice/venice.htm"
+            }
+        ],
+        "city": "Los Angeles",
+        "activity": "Experience"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": "Jog along the  Trinity River",
+        "urls": [
+            {
+                "text": "Trinity River",
+                "url": "http://www.trinityrivercorridor.com/"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": "Run the  Katy Trail",
+        "urls": [
+            {
+                "text": "Katy Trail",
+                "url": "http://www.katytraildallas.org/site/PageServer"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/yoga.gif",
+        "content": "Do Bikram yoga in  Klyde Warren Park",
+        "urls": [
+            {
+                "text": "Klyde Warren Park",
+                "url": "http://www.klydewarrenpark.org/Things-To-Do/events/yogabikram.html"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/bike.gif",
+        "content": "Take a 8/20/30 mile  bike tour",
+        "urls": [
+            {
+                "text": "bike tour",
+                "url": "http://www.tourdallas.org/home.html"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/hike.gif",
+        "content": "Hike the  White Rock Lake trails",
+        "urls": [
+            {
+                "text": "White Rock Lake",
+                "url": "http://www.whiterockdallas.org/"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Cardio"
+    },
+    {
+        "image": "STRENGTH/bull.gif",
+        "content": "Ride the mechanical bull at  Gilley’s Jack Daniel’s Saloon",
+        "urls": [
+            {
+                "text": "Gilley’s Jack Daniel’s Saloon",
+                "url": "http://gilleysdallas.com/the-jack-daniels-saloon/"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/swim.gif",
+        "content": "Swim at a  community pool",
+        "urls": [
+            {
+                "text": "community pool",
+                "url": "http://www.dallasaquatics.org/community-pools"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/run.gif",
+        "content": "Climb the bleachers at  Gerald Ford Stadium",
+        "urls": [
+            {
+                "text": "Gerald Ford Stadium",
+                "url": "http://www.smumustangs.com/facilities/ford-stadium.html"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/tennis.gif",
+        "content": "Play tennis at the  Campbell Green Recreation Tennis Courts",
+        "urls": [
+            {
+                "text": "Campbell Green Recreation Tennis Courts",
+                "url": "http://www.dallasparks.org/facilities/recreation_nCentral.aspx"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/run.gif",
+        "content": "Run up  Flag Pole Hill",
+        "urls": [
+            {
+                "text": "Flag Pole Hill",
+                "url": "http://www.visitdallas.com/listings/Flag-Pole-Hill/7361/"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Strength"
+    },
+    {
+        "image": "ENERGIZE/walk.gif",
+        "content": "Hang out on the  Continental Avenue Bridge",
+        "urls": [
+            {
+                "text": "Continental Avenue Bridge",
+                "url": "http://www.trinityrivercorridor.com/recreation/continental-ave-bridge.html"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/garden.gif",
+        "content": "Sit in a garden at the  Dallas Arboretum",
+        "urls": [
+            {
+                "text": "Dallas Arboretum",
+                "url": "http://www.dallasarboretum.org/"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/garden.gif",
+        "content": "Visit the butterflies in the  Texas Discovery Gardens",
+        "urls": [
+            {
+                "text": "Texas Discovery Gardens",
+                "url": "http://www.texasdiscoverygardens.org/"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/garden.gif",
+        "content": "Get a drink from the fountain at  Main Street Garden",
+        "urls": [
+            {
+                "text": "Main Street Garden",
+                "url": "http://www.mainstreetgarden.org/"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/picnic.gif",
+        "content": "Picnic at  Lakeside Park",
+        "urls": [
+            {
+                "text": "Lakeside Park",
+                "url": "http://www.hptx.org/index.aspx?page=176"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Energize"
+    },
+    {
+        "image": "EXPERIENCE/view.gif",
+        "content": "Check out the  Reunion Arena Tower observation deck",
+        "urls": [
+            {
+                "text": "Reunion Arena Tower",
+                "url": "http://www.reuniontower.com/"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Stroll through the  Dallas Arts District",
+        "urls": [
+            {
+                "text": "Dallas Arts District",
+                "url": "http://www.thedallasartsdistrict.org/"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Explore the  Nasher Sculpture Center",
+        "urls": [
+            {
+                "text": "Nasher Sculpture Center",
+                "url": "http://www.nashersculpturecenter.org/"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Visit the  Dealey Plaza National Historic Plaza District",
+        "urls": [
+            {
+                "text": "Dealey Plaza National Historic Plaza District",
+                "url": "http://tps.cr.nps.gov/nhl/detail.cfm?ResourceId=2164&ResourceType="
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Walk around the  Dallas Heritage Village",
+        "urls": [
+            {
+                "text": "Dallas Heritage Village",
+                "url": "http://www.dallasheritagevillage.org/"
+            }
+        ],
+        "city": "Dallas",
+        "activity": "Experience"
+    },
+    {
+        "image": "CARDIO/walk.gif",
+        "content": "Walk underground in the  Tunnels",
+        "urls": [
+            {
+                "text": "Tunnels",
+                "url": "http://www.houstontx.gov/abouthouston/exploringtunnels.html"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/paintball.gif",
+        "content": "Go paintballing at  Urban Warzone",
+        "urls": [
+            {
+                "text": "Urban Warzone",
+                "url": "http://www.urbanwarzonepaintball.com/"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": "Run the  Rice University Trail",
+        "urls": [
+            {
+                "text": "Rice University Trail",
+                "url": "http://www.tripadvisor.com/Attraction_Review-g56003-d147015-Reviews-Rice_University_Trail-Houston_Texas.html"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/boat.gif",
+        "content": " Peddle boat in  Hermann Park",
+        "urls": [
+            {
+                "text": "Peddle boat",
+                "url": "http://www.hermannpark.org/railroad.php"
+            },
+            {
+                "text": "Hermann Park",
+                "url": "http://www.hermannpark.org/index.php"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/hike.gif",
+        "content": "Hike in  Terry Hersey Park",
+        "urls": [
+            {
+                "text": "Terry Hersey Park",
+                "url": "http://terryhersheypark.org/"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Cardio"
+    },
+    {
+        "image": "STRENGTH/horse.gif",
+        "content": "Horseback ride along  Cypress Creek",
+        "urls": [
+            {
+                "text": "Cypress Creek",
+                "url": "http://www.horseridingfun.com/adventurerides.html"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": "Canoe at the  Armand Bayou Nature Center",
+        "urls": [
+            {
+                "text": "Armand Bayou Nature Center",
+                "url": "http://www.abnc.org/"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": "Kayak on the  Buffalo Bayou",
+        "urls": [
+            {
+                "text": "Kayak",
+                "url": "http://www.buffalobayou.org/canoekayaktrips.html"
+            },
+            {
+                "text": "Buffalo Bayou",
+                "url": "http://www.buffalobayou.org/"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/wakeboard.gif",
+        "content": "Wakeboard, water ski, and more at  Wake Nation",
+        "urls": [
+            {
+                "text": "Wake Nation",
+                "url": "http://wakenationhouston.com/"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/climb.gif",
+        "content": "Rock climb at  Texas Rock Gym",
+        "urls": [
+            {
+                "text": "Texas Rock Gym",
+                "url": "http://www.texasrockgym.com/"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Strength"
+    },
+    {
+        "image": "ENERGIZE/splash.gif",
+        "content": "Splash around the  Gateway Fountain at  Discovery Green",
+        "urls": [
+            {
+                "text": "Gateway Fountain",
+                "url": "http://www.discoverygreen.com/discovery-green-park-map"
+            },
+            {
+                "text": "Discovery Green",
+                "url": "http://www.discoverygreen.com/"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/bench.gif",
+        "content": "Sit on a bench in  Sylvan Beach Park",
+        "urls": [
+            {
+                "text": "Sylvan Beach Park",
+                "url": "http://www.visithoustontexas.com/listings/Sylvan-Beach-Park/20803/"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/garden.gif",
+        "content": "Relax in the gardens at  Bayou Bend",
+        "urls": [
+            {
+                "text": "Bayou Bend",
+                "url": "http://www.mfah.org/visit/bayou-bend-collection-and-gardens/"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/splash.gif",
+        "content": "Sit under the  Water Wall",
+        "urls": [
+            {
+                "text": "Water Wall",
+                "url": "http://www.tripadvisor.com/Attraction_Review-g56003-d561102-Reviews-Water_Wall-Houston_Texas.html"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/picnic.gif",
+        "content": "Picnic in  Memorial Park",
+        "urls": [
+            {
+                "text": "Memorial Park",
+                "url": "http://www.memorialparkconservancy.org/"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Energize"
+    },
+    {
+        "image": "EXPERIENCE/view.gif",
+        "content": "Ride to the 60th  Floor Sky Lobby of the JP Morgan Chase Tower",
+        "urls": [
+            {
+                "text": "e 60th",
+                "url": "http://www.chasetower.com/building.php?sect=1"
+            },
+            {
+                "text": "th",
+                "url": "http://www.chasetower.com/building.php?sect=1"
+            },
+            {
+                "text": "Floor Sky Lobby of the JP Morgan Chase Tower",
+                "url": "http://www.chasetower.com/building.php?sect=1"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Stroll through the  Market Square Historic District",
+        "urls": [
+            {
+                "text": "Market Square Historic District",
+                "url": "http://www.marketsquarepark.com/"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Explore  Sculpture Park",
+        "urls": [
+            {
+                "text": "Sculpture Park",
+                "url": "http://www.tripadvisor.com/Attraction_Review-g56003-d2273098-Reviews-Sculpture_Park-Houston_Texas.html"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/dance.gif",
+        "content": "Check out  Bayou Place",
+        "urls": [
+            {
+                "text": "Bayou Place",
+                "url": "http://www.bayouplace.com/"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/gravity.gif",
+        "content": "Go zero-gravity at  Space Center Houston",
+        "urls": [
+            {
+                "text": "Space Center Houston",
+                "url": "http://spacecenter.org/"
+            }
+        ],
+        "city": "Houston",
+        "activity": "Experience"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": "Run the  Chastain Park Trail",
+        "urls": [
+            {
+                "text": "Chastain Park Trail",
+                "url": "http://pathfoundation.org/trails/atlanta-dekalb-system/chastain-park/"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/walk.gif",
+        "content": "Walk Along the  Nancy Creek Trail",
+        "urls": [
+            {
+                "text": "Nancy Creek Trail",
+                "url": "http://pathfoundation.org/trails/atlanta-dekalb-system/nancy-creek/"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/bike.gif",
+        "content": "Take a  bike tour",
+        "urls": [
+            {
+                "text": "bike tour",
+                "url": "http://www.biketoursatl.com/"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/tour.gif",
+        "content": "Take a historic walking tour with  Underground Atlanta",
+        "urls": [
+            {
+                "text": "Underground Atlanta",
+                "url": "http://www.underground-atlanta.com/"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/golf.gif",
+        "content": " Golf the  Charlie Yates Golf Course",
+        "urls": [
+            {
+                "text": "Charlie Yates Golf Course",
+                "url": "http://www.charlieyatesgolfcourse.com/sites/courses/layout9.asp?id=343&page=8653"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Cardio"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": "Kayak down the  Chattahoochee River",
+        "urls": [
+            {
+                "text": "Kayak",
+                "url": "http://www.atlanta.net/detailPages/detail_page.aspx?accountnum=00087196&"
+            },
+            {
+                "text": "Chattahoochee River",
+                "url": "http://www.nps.gov/chat/index.htm"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/bike.gif",
+        "content": "Cycle the  Dick Lane Velodrome",
+        "urls": [
+            {
+                "text": "Dick Lane Velodrome",
+                "url": "http://www.dicklanevelodrome.com/"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/climb.gif",
+        "content": " Sky Hike at  Stone Mountain Park",
+        "urls": [
+            {
+                "text": "Sky Hike",
+                "url": "http://www.stonemountainpark.com/activities/attractions/SkyHike.aspx"
+            },
+            {
+                "text": "Stone Mountain Park",
+                "url": "http://www.stonemountainpark.com/"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/run.gif",
+        "content": "Run up  Kennesaw Mountain",
+        "urls": [
+            {
+                "text": "Kennesaw Mountain",
+                "url": "http://www.nps.gov/kemo/planyourvisit/maps.htm"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/run.gif",
+        "content": "Run up the stairs of  Bobby Dodd Stadium",
+        "urls": [
+            {
+                "text": "Bobby Dodd Stadium",
+                "url": "http://www.ramblinwreck.com/genrel/071001aaa.html"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Strength"
+    },
+    {
+        "image": "ENERGIZE/picnic.gif",
+        "content": "Picnic in  Piedmont Park",
+        "urls": [
+            {
+                "text": "Piedmont Park",
+                "url": "http://www.atlanta.net/detailPages/detail_page.aspx?accountnum=00098872"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/bench.gif",
+        "content": "Grab a bench in  Atlanta Botanical Garden",
+        "urls": [
+            {
+                "text": "Atlanta Botanical Garden",
+                "url": "http://www.atlantabotanicalgarden.org/"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/splash.gif",
+        "content": "Splash in the fountains of  Centennial Olympic Park",
+        "urls": [
+            {
+                "text": "Centennial Olympic Park",
+                "url": "http://www.centennialpark.com/"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/park.gif",
+        "content": "Relax by the waterfall in  Lullwater Park",
+        "urls": [
+            {
+                "text": "Lullwater Park",
+                "url": "http://www.yelp.com/biz/lullwater-park-atlanta"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/splash.gif",
+        "content": "Take a dip in the  Grant Park Pool",
+        "urls": [
+            {
+                "text": "Grant Park Pool",
+                "url": "http://www.grantparkpool.org/"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Energize"
+    },
+    {
+        "image": "EXPERIENCE/aquarium.gif",
+        "content": "Encounter sea life at  Georgia Aquarium",
+        "urls": [
+            {
+                "text": "Georgia Aquarium",
+                "url": "http://www.georgiaaquarium.org/"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/zoo.gif",
+        "content": "Visit the  Zoo Atlanta",
+        "urls": [
+            {
+                "text": "Zoo Atlanta",
+                "url": "http://www.zooatlanta.org/"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/ticket.gif",
+        "content": "Get a bird’s-eye-view with  Balloons Over Georgia",
+        "urls": [
+            {
+                "text": "Balloons Over Georgia",
+                "url": "http://balloonsovergeorgia.com/"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/garden.gif",
+        "content": " Zipline through the treetops",
+        "urls": [
+            {
+                "text": "Zipline",
+                "url": "http://www.northgeorgiacanopytours.com/"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Stroll and shop around  Little Five Points",
+        "urls": [
+            {
+                "text": "Little Five Points",
+                "url": "http://www.atlanta-midtown.com/business/l5p/"
+            }
+        ],
+        "city": "Atlanta",
+        "activity": "Experience"
+    },
+    {
+        "image": "CARDIO/hike.gif",
+        "content": "Hike in Everglades National Park",
+        "urls": [
+            {
+                "text": "Everglades National Park",
+                "url": "http://www.miamiandbeaches.com/member-details?id=100837&s=/things-to-do/nature-and-outdoors/parks&default=/~/media/images/gmcvb/misc/default_listing.ashx"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": " Jog on the Miami Beach Boardwalk",
+        "urls": [
+            {
+                "text": "Miami Beach Boardwalk",
+                "url": "http://www.tripadvisor.com/ShowUserReviews-g34439-d2475470-r137435651-Miami_Beach_Boardwalk-Miami_Beach_Florida.html"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/dance.gif",
+        "content": "Dance the night away at one of Miami’s many nightclubs",
+        "urls": [
+            {
+                "text": "Miami’s many nightclubs",
+                "url": "http://www.miamiandbeaches.com/things-to-do/nightlife/dancing"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/volleyball.gif",
+        "content": "Round up a game of beach volleyball at South Beach",
+        "urls": [
+            {
+                "text": "beach volleyball at South Beach",
+                "url": "http://www.southbeachvolley.com/aboutus.htm"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/yoga.gif",
+        "content": " Do a vinyasa yoga class on the beach",
+        "urls": [
+            {
+                "text": "yoga class",
+                "url": "http://www.tripadvisor.com/Attraction_Review-g34439-d1799402-Reviews-Beach_Yoga_3rd_Street-Miami_Beach_Florida.html"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Cardio"
+    },
+    {
+        "image": "STRENGTH/swim.gif",
+        "content": "Go for a swim at South Beach",
+        "urls": [
+            {
+                "text": "South Beach",
+                "url": "http://www.southbeachsurfschool.com/"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/surf.gif",
+        "content": " Surf at South Beach",
+        "urls": [
+            {
+                "text": "South Beach",
+                "url": "http://www.southbeachsurfschool.com/"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": "Go kayaking at Morningside Park",
+        "urls": [
+            {
+                "text": "Morningside Park",
+                "url": "http://www.miamigov.com/parks/pages/park_listings/community.asp"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/bike.gif",
+        "content": " Bike through Everglades National Park",
+        "urls": [
+            {
+                "text": "Everglades National Park",
+                "url": "http://www.nps.gov/ever/planyourvisit/biking.htm"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": "Paddleboard at Hobie Beach",
+        "urls": [
+            {
+                "text": "Hobie Beach",
+                "url": "http://www.miamiandbeaches.com/articles/windsurfing-and-paddleboarding"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Strength"
+    },
+    {
+        "image": "ENERGIZE/park.gif",
+        "content": " Relax beneath a tree at North Shore Open Space Park",
+        "urls": [
+            {
+                "text": "North Shore Open Space Park",
+                "url": "http://www.miamiandbeaches.com/member-details?id=101616&s=/Explore-Miami/Beaches&default=/~/media/Images/GMCVB/Misc/default_beaches.ashx"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/drink.gif",
+        "content": " Sip on something refreshing at a café on Key Biscayne",
+        "urls": [
+            {
+                "text": "Key Biscayne",
+                "url": "http://www.miamiandbeaches.com/areas/key-biscayne"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/sunbathe.gif",
+        "content": " Rent a lounge chair, cabana or umbrella on South Beach",
+        "urls": [
+            {
+                "text": "South Beach",
+                "url": "http://www.boucherbrothers.com/water-sports/lounge-chairs-cabanas.php"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/garden.gif",
+        "content": " Stroll through the greenery of Fairchild Tropical Botanic Garden",
+        "urls": [
+            {
+                "text": "Fairchild Tropical Botanic Garden",
+                "url": "http://www.miamiandbeaches.com/member-details?id=100854&s=/Things-To-Do/Attractions&default=/~/media/Images/GMCVB/Misc/default_listing.ashx"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/picnic.gif",
+        "content": " Enjoy a quiet picnic on Sunny Isles Beach",
+        "urls": [
+            {
+                "text": "Sunny Isles Beach",
+                "url": "http://www.miamiandbeaches.com/member-details?id=102565&s=/Explore-Miami/Beaches&default=/~/media/Images/GMCVB/Misc/default_beaches.ashx"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Energize"
+    },
+    {
+        "image": "EXPERIENCE/golf.gif",
+        "content": "Golf at Doral Golf Resort & Spa",
+        "urls": [
+            {
+                "text": "Doral Golf Resort & Spa",
+                "url": "http://www.trumphotelcollection.com/miami/golf-courses-miami.php"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/jetski.gif",
+        "content": " Go jet-skiing",
+        "urls": [
+            {
+                "text": "jet-skiing",
+                "url": "http://www.jetskitoursofmiami.com/"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/garden.gif",
+        "content": " Take an airboat ride through Everglades Safari Park",
+        "urls": [
+            {
+                "text": "Everglades Safari Park",
+                "url": "http://www.miamiandbeaches.com/member-details?id=100853&s=/things-to-do/attractions&default=/~/media/Images/GMCVB/Misc/default_listing.ashx"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/fishing.gif",
+        "content": " Go fishing in Everglades National Park",
+        "urls": [
+            {
+                "text": "Everglades National Park",
+                "url": "http://www.miamiandbeaches.com/member-details?id=100853&s=/things-to-do/attractions&default=/~/media/Images/GMCVB/Misc/default_listing.ashx"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/skydive.gif",
+        "content": " Skydive at Miami Skydiving Center",
+        "urls": [
+            {
+                "text": "Miami Skydiving Center",
+                "url": "http://www.miamiskydivingcenter.com/"
+            }
+        ],
+        "city": "Miami",
+        "activity": "Experience"
+    },
+    {
+        "image": "CARDIO/hike.gif",
+        "content": "Hike the trails of Rock Creek Park",
+        "urls": [
+            {
+                "text": "Rock Creek Park",
+                "url": "http://www.nps.gov/rocr/planyourvisit/things2do.htm"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": " Jog the 2.5 miles from the Capitol to the Lincoln Memorial",
+        "urls": [
+            {
+                "text": "Capitol to the Lincoln Memorial",
+                "url": "http://washington.org/article/dc-jogging-trails-biking-routes"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/volleyball.gif",
+        "content": "Round up a game of volleyball at Potomac Park",
+        "urls": [
+            {
+                "text": "Potomac Park",
+                "url": "http://www.yelp.com/biz/west-potomac-park-washington"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/walk.gif",
+        "content": "Take a brisk walk through the National Mall",
+        "urls": [
+            {
+                "text": "National Mall",
+                "url": "http://www.nps.gov/nacc/index.htm"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": " Jog on The Swamp Trail in Theodore Roosevelt Island Park",
+        "urls": [
+            {
+                "text": "Theodore Roosevelt Island Park",
+                "url": "http://www.nps.gov/this/planyourvisit/things2do.htm"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Cardio"
+    },
+    {
+        "image": "STRENGTH/bike.gif",
+        "content": "Bike the trails of Rock Creek Park",
+        "urls": [
+            {
+                "text": "Rock Creek Park",
+                "url": "http://www.nps.gov/rocr/planyourvisit/things2do.htm"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/bike.gif",
+        "content": " Rent a Capital Bikeshare and sightsee on wheels",
+        "urls": [
+            {
+                "text": "Capital Bikeshare",
+                "url": "http://www.bikewashington.org/rentals/"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/zipline.gif",
+        "content": " Experience a treetop adventure at Go Ape",
+        "urls": [
+            {
+                "text": "Go Ape",
+                "url": "http://washington.org/find-dc-listings/go-ape-treetop-adventure"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": "Kayak in the Potomac River",
+        "urls": [
+            {
+                "text": "Potomac River",
+                "url": "http://www.nps.gov/this/planyourvisit/things2do.htm"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": "Take out a rowboat in the Potomac River",
+        "urls": [
+            {
+                "text": "Potomac River",
+                "url": "http://www.fletcherscove.com/rentals.htm"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Strength"
+    },
+    {
+        "image": "ENERGIZE/park.gif",
+        "content": " Bask in nature’s majesty at Rock Creek Park",
+        "urls": [
+            {
+                "text": "Rock Creek Park",
+                "url": "http://www.nps.gov/rocr/index.htm"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/bench.gif",
+        "content": "Relax on a bench at the National Mall",
+        "urls": [
+            {
+                "text": "National Mall",
+                "url": "http://www.nps.gov/nacc/index.htm"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/park.gif",
+        "content": "Relax beneath the trees at Lafayette Square",
+        "urls": [
+            {
+                "text": "Lafayette Square",
+                "url": "http://washington.org/find-dc-listings/lafayette-square"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/garden.gif",
+        "content": " Reconnect with nature at the United States Botanic Garden",
+        "urls": [
+            {
+                "text": "United States Botanic Garden",
+                "url": "http://www.usbg.gov/"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/picnic.gif",
+        "content": " Enjoy a picnic at Dupont Circle",
+        "urls": [
+            {
+                "text": "Dupont Circle",
+                "url": "http://dc.about.com/od/dcparks/a/WashDCParks.htm"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Energize"
+    },
+    {
+        "image": "EXPERIENCE/horse.gif",
+        "content": "Take a horseback riding lesson at Rock Creek Park",
+        "urls": [
+            {
+                "text": "Rock Creek Park",
+                "url": "http://www.rockcreekhorsecenter.com/"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/garden.gif",
+        "content": " Explore the Hillwood Estate Museum",
+        "urls": [
+            {
+                "text": "Hillwood Estate Museum",
+                "url": "http://www.hillwoodmuseum.org/"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": " Stroll along the C&O Canal",
+        "urls": [
+            {
+                "text": "C&O Canal",
+                "url": "http://www.nps.gov/nr/travel/wash/dc6.htm"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Walk around Union Station and take in the century-old architecture",
+        "urls": [
+            {
+                "text": "Union Station",
+                "url": "http://www.unionstationdc.com/"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/golf.gif",
+        "content": "Golf at East Potomac Park Golf Course",
+        "urls": [
+            {
+                "text": "East Potomac Park Golf Course",
+                "url": "http://washington.org/find-dc-listings/east-potomac-park-golf-course"
+            }
+        ],
+        "city": "Washington DC",
+        "activity": "Experience"
+    },
+    {
+        "image": "CARDIO/hike.gif",
+        "content": "Hike the trails in Valley Forge National Historical Park",
+        "urls": [
+            {
+                "text": "Valley Forge National Historical Park",
+                "url": "http://www.visitphilly.com/history/philadelphia/valley-forge-national-historical-park/"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/frisbee.gif",
+        "content": "Round up a game of ultimate Frisbee at Fairmount Park",
+        "urls": [
+            {
+                "text": "Fairmount Park",
+                "url": "http://www.visitphilly.com/outdoor-activities/philadelphia/fairmount-park/"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/hike.gif",
+        "content": "Take a hike in Fairmount Park",
+        "urls": [
+            {
+                "text": "Fairmount Park",
+                "url": "http://www.visitphilly.com/outdoor-activities/philadelphia/fairmount-park/"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": " Jog the Schuylkill River Trail",
+        "urls": [
+            {
+                "text": "Schuylkill River Trail",
+                "url": "http://www.funonfoot.com/philadelphia.html"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/walk.gif",
+        "content": " Walk the 1.25 mile Constitutional Tour",
+        "urls": [
+            {
+                "text": "Constitutional Tour",
+                "url": "http://www.theconstitutional.com/"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Cardio"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": " Take out a boat in Green Lane Park",
+        "urls": [
+            {
+                "text": "Green Lane Park",
+                "url": "http://valleyforge.org/directory/15943"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/bike.gif",
+        "content": " Take a guided bike tour across the city",
+        "urls": [
+            {
+                "text": "guided bike tour",
+                "url": "http://www.visitphilly.com/tours/philadelphia/philadelphia-bike-tours/"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/bike.gif",
+        "content": " Bike the Delaware River bike trail",
+        "urls": [
+            {
+                "text": "Delaware River bike trail",
+                "url": "http://articles.philly.com/2013-06-19/news/40050505_1_walking-trail-east-coast-greenway-full-trail"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": "Canoe or Kayak in Delaware Canal State Park",
+        "urls": [
+            {
+                "text": "Delaware Canal State Park",
+                "url": "http://www.visitphilly.com/outdoor-activities/philadelphia/delaware-canal-state-park/"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/yoga.gif",
+        "content": " Take an outdoor yoga class",
+        "urls": [
+            {
+                "text": "outdoor yoga class",
+                "url": "https://www.facebook.com/urbanyogaphilly"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Strength"
+    },
+    {
+        "image": "ENERGIZE/bench.gif",
+        "content": " Learn about the city’s history on the Storytelling Bench with Once Upon a Nation",
+        "urls": [
+            {
+                "text": "Once Upon a Nation",
+                "url": "http://www.visitphilly.com/history/philadelphia/once-upon-a-nation/"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/garden.gif",
+        "content": " Sit back and relax by the Franklin Square Fountain",
+        "urls": [
+            {
+                "text": "Franklin Square Fountain",
+                "url": "http://historicphiladelphia.org/franklin-square/what-to-see/"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/picnic.gif",
+        "content": " Enjoy a picnic at Drexel Park",
+        "urls": [
+            {
+                "text": "Drexel Park",
+                "url": "http://www.visitphilly.com/outdoor-activities/philadelphia/drexel-park/"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/watch.gif",
+        "content": " Relax and people-watch on Race Street Pier",
+        "urls": [
+            {
+                "text": "Race Street Pier",
+                "url": "http://www.visitphilly.com/museums-attractions/philadelphia/race-street-pier/"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/snack.gif",
+        "content": " Enjoy the city views and food truck fare at The Oval",
+        "urls": [
+            {
+                "text": "The Oval",
+                "url": "http://www.visitphilly.com/events/philadelphia/the-oval-on-the-benjamin-franklin-parkway/"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Energize"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": " Stroll through the shops and cafés on Liberties Walk",
+        "urls": [
+            {
+                "text": "Liberties Walk",
+                "url": "http://www.visitphilly.com/outdoor-activities/philadelphia/liberties-walk/"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/garden.gif",
+        "content": " Enjoy the flora and sculpture garden of the Morris Arboretum",
+        "urls": [
+            {
+                "text": "Morris Arboretum",
+                "url": "http://www.visitphilly.com/outdoor-activities/philadelphia/morris-arboretum/"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/ticket.gif",
+        "content": " Tour the city in the amazing Duck vehicle that travels on land AND sea",
+        "urls": [
+            {
+                "text": "Duck vehicle",
+                "url": "http://www.visitphilly.com/tours/philadelphia/ride-the-ducks/"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/ticket.gif",
+        "content": " Enjoy a Philly by Night trolley tour",
+        "urls": [
+            {
+                "text": "Philly by Night",
+                "url": "http://www.visitphilly.com/tours/philadelphia/philly-by-night/"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Climb the infamous “Rocky Steps” of the Philadelphia Museum of Art",
+        "urls": [
+            {
+                "text": "Philadelphia Museum of Art",
+                "url": "http://www.philamuseum.org/"
+            }
+        ],
+        "city": "Philadelphia",
+        "activity": "Experience"
+    },
+    {
+        "image": "CARDIO/walk.gif",
+        "content": " Walk the 1.5 mile-long Highline Park",
+        "urls": [
+            {
+                "text": "Highline Park",
+                "url": "http://www.thehighline.org/about/faq"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": "Jog through Central Park",
+        "urls": [
+            {
+                "text": "Central Park",
+                "url": "http://www.centralparknyc.org/"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/walk.gif",
+        "content": "Walk across the Brooklyn Bridge",
+        "urls": [
+            {
+                "text": "Brooklyn Bridge",
+                "url": "http://www.aviewoncities.com/nyc/brooklynbridge.htm"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/dance.gif",
+        "content": "Dance the day away at P.S. 1 MoMA Warm-up Saturdays",
+        "urls": [
+            {
+                "text": "P.S. 1 MoMA Warm-up Saturdays",
+                "url": "http://www.time.com/time/travel/cityguide/article/0,31489,1843404_1843415_1845587,00.html"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": "Jog in Chelsea along the Hudson River",
+        "urls": [
+            {
+                "text": "Hudson River",
+                "url": "http://www.hudsonriverpark.org/"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Cardio"
+    },
+    {
+        "image": "STRENGTH/ticket.gif",
+        "content": " Try your skills at flying trapeze at TSNY",
+        "urls": [
+            {
+                "text": "TSNY",
+                "url": "http://www.trapezeschool.com/default.php"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/bike.gif",
+        "content": "Bike along the Hudson River",
+        "urls": [
+            {
+                "text": "Hudson River",
+                "url": "http://www.hudsonriverpark.org/"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": "Rent a boat at the Central Park boathouse",
+        "urls": [
+            {
+                "text": "Central Park boathouse",
+                "url": "http://www.thecentralparkboathouse.com/boats.php"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/bike.gif",
+        "content": "Bike across the Manhattan Bridge",
+        "urls": [
+            {
+                "text": "Manhattan Bridge",
+                "url": "http://www.nyc.gov/html/dot/html/infrastructure/manhattan-bridge.shtml"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/climb.gif",
+        "content": " Rock climb indoors at Chelsea Piers",
+        "urls": [
+            {
+                "text": "Chelsea Piers",
+                "url": "http://www.chelseapiers.com/sc/club/climbing/"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Strength"
+    },
+    {
+        "image": "ENERGIZE/picnic.gif",
+        "content": " Enjoy a picnic in Central Park",
+        "urls": [
+            {
+                "text": "Central Park",
+                "url": "http://www.centralpark.com/guide/sports/boating.html"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/bench.gif",
+        "content": "Relax on a bench in Union Square and people-watch",
+        "urls": [
+            {
+                "text": "Union Square",
+                "url": "http://www.unionsquarenyc.org/"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/music.gif",
+        "content": "Relax in Washington Square Park and enjoy live music",
+        "urls": [
+            {
+                "text": "Washington Square Park",
+                "url": "http://www.nycgovparks.org/parks/washingtonsquarepark/"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/splash.gif",
+        "content": "Splash around in the Washington Square Park fountain",
+        "urls": [
+            {
+                "text": "Washington Square Park",
+                "url": "http://www.nycgovparks.org/parks/washingtonsquarepark/"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/park.gif",
+        "content": "Stroll beneath the trees of Riverside Park",
+        "urls": [
+            {
+                "text": "Riverside Park",
+                "url": "http://www.nycgovparks.org/parks/riversidepark"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Energize"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Enjoy the narrow streets and shops of Little Italy",
+        "urls": [
+            {
+                "text": "Little Italy",
+                "url": "http://www.littleitalynyc.com/"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/ticket.gif",
+        "content": "Hop aboard a double-decker bus and tour the city",
+        "urls": [
+            {
+                "text": "double-decker bus",
+                "url": "http://www.newyorksightseeing.com/"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Walk through Grand Central Station",
+        "urls": [
+            {
+                "text": "Grand Central Station",
+                "url": "http://www.grandcentralterminal.com/"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/met.gif",
+        "content": "Enjoy the art and architectural prowess of the Metropolitan Museum",
+        "urls": [
+            {
+                "text": "Metropolitan Museum",
+                "url": "http://www.metmuseum.org/"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/golf.gif",
+        "content": "Tee off at the Chelsea Piers Golf Club",
+        "urls": [
+            {
+                "text": "Chelsea Piers Golf Club",
+                "url": "http://www.chelseapiers.com/gc/"
+            }
+        ],
+        "city": "New York City",
+        "activity": "Experience"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": " Jog in Boston Common park",
+        "urls": [
+            {
+                "text": "Boston Common park",
+                "url": "http://www.cityofboston.gov/parks/emerald/boston_common.asp"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/walk.gif",
+        "content": " Walk the 2.5 mile Freedom Trail",
+        "urls": [
+            {
+                "text": "Freedom Trail",
+                "url": "http://www.thefreedomtrail.org/"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/walk.gif",
+        "content": "Walk through Newbury Street",
+        "urls": [
+            {
+                "text": "Newbury Street",
+                "url": "http://www.newbury-st.com/"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": " Jog along the Charles River",
+        "urls": [
+            {
+                "text": "Charles River",
+                "url": "http://www.boston.com/blogs/sports/runalong/2013/07/running-on-the-charles-river.html"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": " Jog along Heartbreak Hill",
+        "urls": [
+            {
+                "text": "Heartbreak Hill",
+                "url": "http://www.boston.com/marathon/course/stage4.htm"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Cardio"
+    },
+    {
+        "image": "STRENGTH/run.gif",
+        "content": "Climb the 294 steps to the top of Bunker Hill Monument",
+        "urls": [
+            {
+                "text": "Bunker Hill Monument",
+                "url": "http://www.cityofboston.gov/freedomtrail/bunkerhill.asp"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/bike.gif",
+        "content": " Bike through the city with a rented Hubway bike",
+        "urls": [
+            {
+                "text": "Hubway bike",
+                "url": "http://www.thehubway.com/"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": "Canoe or kayak down the Charles River",
+        "urls": [
+            {
+                "text": "Canoe or kayak",
+                "url": "http://www.paddleboston.com/boston.php"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/climb.gif",
+        "content": " Rock climb indoors at Rock Spot Climbing",
+        "urls": [
+            {
+                "text": "Rock Spot Climbing",
+                "url": "http://www.rockspotclimbing.com/"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/ticket.gif",
+        "content": "Try your skills at flying trapeze at TSNY Beantown",
+        "urls": [
+            {
+                "text": "TSNY Beantown",
+                "url": "http://boston.trapezeschool.com/"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Strength"
+    },
+    {
+        "image": "ENERGIZE/bench.gif",
+        "content": " Relax on a bench alongside the Charles River",
+        "urls": [
+            {
+                "text": "Charles River",
+                "url": "http://www.yelp.com/biz/the-charles-river-boston/"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/boat.gif",
+        "content": " Take a Swan Boat ride in the Boston Public Garden",
+        "urls": [
+            {
+                "text": "Boston Public Garden",
+                "url": "http://www.swanboats.com/"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/snack.gif",
+        "content": " Walk through Faneuil Hall Marketplace and grab a snack",
+        "urls": [
+            {
+                "text": "Faneuil Hall Marketplace",
+                "url": "http://www.faneuilhallmarketplace.com/"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/park.gif",
+        "content": " Rest beneath the trees of the Boston Public Garden",
+        "urls": [
+            {
+                "text": "Boston Public Garden",
+                "url": "http://www.cityofboston.gov/Parks/emerald/public_garden.asp"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/picnic.gif",
+        "content": "Enjoy a picnic in Boston Common park",
+        "urls": [
+            {
+                "text": "Boston Common park",
+                "url": "http://www.cityofboston.gov/parks/emerald/boston_common.asp"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Energize"
+    },
+    {
+        "image": "EXPERIENCE/zoo.gif",
+        "content": " Connect with wildlife at Franklin Park Zoo",
+        "urls": [
+            {
+                "text": "Franklin Park Zoo",
+                "url": "http://www.zoonewengland.org/page.aspx?pid=219"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/ticket.gif",
+        "content": " Hop aboard a train to Salem and see the historical town",
+        "urls": [
+            {
+                "text": "train to Salem",
+                "url": "http://www.mbta.com/"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Walk through the Harvard University Campus",
+        "urls": [
+            {
+                "text": "Harvard University Campus",
+                "url": "http://www.harvard.edu/visitors/"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Take a walking tour of the Black Heritage Trail",
+        "urls": [
+            {
+                "text": "Black Heritage Trail",
+                "url": "http://www.afroammuseum.org/trail.htm"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/golf.gif",
+        "content": "Golf in the second oldest golf course in America at Franklin Park",
+        "urls": [
+            {
+                "text": "Franklin Park",
+                "url": "http://www.cityofboston.gov/golf/WJDGC/"
+            }
+        ],
+        "city": "Boston",
+        "activity": "Experience"
+    },
+    {
+        "image": "CARDIO/walk.gif",
+        "content": " Walk through the Navy Pier shops and gardens",
+        "urls": [
+            {
+                "text": "Navy Pier",
+                "url": "http://www.navypier.com/things2do/rides_attract/pier_park.html"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": " Jog in Lincoln Park",
+        "urls": [
+            {
+                "text": "Lincoln Park",
+                "url": "http://www.chicagoparkdistrict.com/parks/lincoln-park"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": " Jog the Chicago Lakefront Trail",
+        "urls": [
+            {
+                "text": "Chicago Lakefront Trail",
+                "url": "http://www.choosechicago.com/articles/view/THE-LAKEFRONT-TRAIL/454"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/walk.gif",
+        "content": "Walk down the Magnificent Mile",
+        "urls": [
+            {
+                "text": "Magnificent Mile",
+                "url": "http://www.themagnificentmile.com"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": " Jog the Bloomingdale Trail",
+        "urls": [
+            {
+                "text": "Bloomingdale Trail",
+                "url": "http://www.apartmentguide.com/blog/best-places-to-run-in-chicago/"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Cardio"
+    },
+    {
+        "image": "STRENGTH/volleyball.gif",
+        "content": "Round up a volleyball game on Montrose Avenue Beach",
+        "urls": [
+            {
+                "text": "Montrose Avenue Beach",
+                "url": "http://www.cpdbeaches.com/beaches/montrose-beach/"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/swim.gif",
+        "content": "Go for a swim on Oak Street Beach",
+        "urls": [
+            {
+                "text": "Oak Street Beach",
+                "url": "http://www.cpdbeaches.com/beaches/oak-street-beach/"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/bike.gif",
+        "content": " Bike through the Marquette Park bike trails",
+        "urls": [
+            {
+                "text": "Marquette Park",
+                "url": "http://www.chicagoparkdistrict.com/parks/Marquette-Park/"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/tennis.gif",
+        "content": "Play tennis in Grant Park",
+        "urls": [
+            {
+                "text": "Grant Park",
+                "url": "http://www.lonelyplanet.com/usa/chicago/activities/tennis/grant-park"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": "Kayak on Lake Michigan",
+        "urls": [
+            {
+                "text": "Lake Michigan",
+                "url": "http://www.refinery29.com/3-things-to-do-outside-this-summer-that-don-t-involve-eating"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Strength"
+    },
+    {
+        "image": "ENERGIZE/garden.gif",
+        "content": " Reflect by the Lily Pool in Lincoln Park",
+        "urls": [
+            {
+                "text": "Lincoln Park",
+                "url": "http://www.chicagoparkdistrict.com/parks/lincoln-park/"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/garden.gif",
+        "content": "Take in the majesty of Buckingham Fountain",
+        "urls": [
+            {
+                "text": "Buckingham Fountain",
+                "url": "http://www.chicagoparkdistrict.com/parks/clarence-f-buckingham-memorial-fountain"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/boat.gif",
+        "content": " Enjoy a guided boat tour",
+        "urls": [
+            {
+                "text": "guided boat tour",
+                "url": "http://www.chicagoline.com/"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/picnic.gif",
+        "content": " Set up a picnic at Northerly Island Park",
+        "urls": [
+            {
+                "text": "Northerly Island Park",
+                "url": "http://www.chicagoparkdistrict.com/parks/Northerly-Island/"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/garden.gif",
+        "content": " Connect with nature at the Garfield Park Conservatory",
+        "urls": [
+            {
+                "text": "Garfield Park Conservatory",
+                "url": "http://www.garfieldconservatory.org/"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Energize"
+    },
+    {
+        "image": "EXPERIENCE/ticket.gif",
+        "content": " Ride the Navy Pier Ferris Wheel",
+        "urls": [
+            {
+                "text": "Navy Pier Ferris Wheel",
+                "url": "http://www.navypier.com/things2do/rides_attract/pier_park.html"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/ticket.gif",
+        "content": " View the city from the Skydeck of the Sears Tower",
+        "urls": [
+            {
+                "text": "Skydeck of the Sears Tower",
+                "url": "http://www.theskydeck.com/"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Walk through the sculptures and gardens of the Lincoln Park Conservatory",
+        "urls": [
+            {
+                "text": "Lincoln Park Conservatory",
+                "url": "http://www.chicagoparkdistrict.com/parks/lincoln-park-conservatory"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/golf.gif",
+        "content": "Play a round of golf at Marquette Park",
+        "urls": [
+            {
+                "text": "Marquette Park",
+                "url": "http://www.cpdgolf.com/Marquette-Park-Golf-Course.html"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/picture.gif",
+        "content": "Stroll through Millennium Park and take a picture by the Bean (Cloud Gate)",
+        "urls": [
+            {
+                "text": "Millennium Park",
+                "url": "http://www.cityofchicago.org/city/en/depts/dca/supp_info/millennium_park.html"
+            },
+            {
+                "text": "the Bean (Cloud Gate)",
+                "url": "http://www.cityofchicago.org/city/en/depts/dca/supp_info/millennium_park_-artarchitecture.html#cloud"
+            }
+        ],
+        "city": "Chicago",
+        "activity": "Experience"
+    },
+    {
+        "image": "CARDIO/walk.gif",
+        "content": "Take a walking tour inside the pre-Prohibition breweries",
+        "urls": [
+            {
+                "text": "pre-Prohibition breweries",
+                "url": "http://www.cincinnatibrewerytours.com/"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/hike.gif",
+        "content": "Take a hike at Armleder Park",
+        "urls": [
+            {
+                "text": "Armleder Park",
+                "url": "http://www.cincinnatiusa.com/Attractions/detail.asp?AttractionID=487"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": "Organize a soccer game at Harbin Park",
+        "urls": [
+            {
+                "text": "Harbin Park",
+                "url": "http://365cincinnati.com/free/harbin-park"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/walk.gif",
+        "content": "Take a brisk walk through Eden Park",
+        "urls": [
+            {
+                "text": "Eden Park",
+                "url": "http://www.cincinnatiparks.com/eden-park"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": "Jog in Winton Woods Park",
+        "urls": [
+            {
+                "text": "Winton Woods Park",
+                "url": "http://www.yelp.com/biz/winton-woods-cincinnati"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Cardio"
+    },
+    {
+        "image": "STRENGTH/swim.gif",
+        "content": "Take a swim in the Sunlite Pool of Coney Island",
+        "urls": [
+            {
+                "text": "Sunlite Pool of Coney Island",
+                "url": "http://www.coneyislandpark.com/sunlite_pool.php"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": "Canoe on Lake Como in Coney Island",
+        "urls": [
+            {
+                "text": "Lake Como in Coney Island",
+                "url": "http://www.coneyislandpark.com/classic_rides.php"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/bike.gif",
+        "content": "Bike the trails of Harbin Park",
+        "urls": [
+            {
+                "text": "Harbin Park",
+                "url": "http://365cincinnati.com/free/harbin-park"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Strength"
+    },
+        {
+        "image": "STRENGTH/bike.gif",
+        "content": "Sight-see atop a bike via Cincinnati Bike Center",
+        "urls": [
+            {
+                "text": "Cincinnati Bike Center",
+                "url": "http://bikeandpark.com/city/cincinnati"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Strength"
+    },
+
+    {
+        "image": "STRENGTH/wakeboard.gif",
+        "content": "Ski the Perfect North Slopes",
+        "urls": [
+            {
+                "text": "Perfect North Slopes",
+                "url": "http://perfectnorth.com/"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Strength"
+    },
+    {
+        "image": "ENERGIZE/picnic.gif",
+        "content": "Pack lunch and relax in Fountain Square",
+        "urls": [
+            {
+                "text": "Fountain Square",
+                "url": "http://myfountainsquare.com/features-of-the-square/"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/picnic.gif",
+        "content": "Enjoy a picnic in Armleder Park",
+        "urls": [
+            {
+                "text": "Armleder Park",
+                "url": "http://www.cincinnatiusa.com/Attractions/detail.asp?AttractionID=487"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/watch.gif",
+        "content": "Take in views of nature at the Pavilion of Ault Park",
+        "urls": [
+            {
+                "text": "Pavilion of Ault Park",
+                "url": "http://www.aultparkac.org/visit/about-ault-park/"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/watch.gif",
+        "content": "Relax in the Garden of Old Roses of Ault Park",
+        "urls": [
+            {
+                "text": "Garden of Old Roses of Ault Park",
+                "url": "http://www.aultparkac.org/gardens/main-gardens/"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Energize"
+    },
+
+    {
+        "image": "ENERGIZE/watch.gif",
+        "content": "Curl up with a good book at the Public Library of Cincinnati – the 12th largest public library in the country",
+        "urls": [
+            {
+                "text": "Public Library of Cincinnati",
+                "url": "http://www.cincinnatilibrary.org/"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Energize"
+    },
+    {
+        "image": "EXPERIENCE/zoo.gif",
+        "content": "Reconnect with nature at the Cincinnati Zoo & Botanical Garden",
+        "urls": [
+            {
+                "text": "Cincinnati Zoo & Botanical Garden",
+                "url": "http://www.cincinnatiusa.com/Attractions/detail.asp?AttractionID=14"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/watch.gif",
+        "content": "See the lit up fountains at night in Smale Riverfront Park",
+        "urls": [
+            {
+                "text": "Smale Riverfront Park",
+                "url": "http://www.cincinnatiusa.com/Attractions/detail.asp?AttractionID=647"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/golf.gif",
+        "content": "Golf at Aston Oaks Golf Club",
+        "urls": [
+            {
+                "text": "Aston Oaks Golf Club",
+                "url": "http://www.cincinnatiusa.com/Attractions/detail.asp?AttractionID=208"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/watch.gif",
+        "content": "Get lost in the art and architecture of the Cincinnati Art Museum",
+        "urls": [
+            {
+                "text": "Cincinnati Art Museum",
+                "url": "http://www.cincinnatiartmuseum.org/"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/view.gif",
+        "content": "Study the stars at the Cincinnati Observatory",
+        "urls": [
+            {
+                "text": "Cincinnati Observatory",
+                "url": "http://www.cincinnatiobservatory.org/"
+            }
+        ],
+        "city": "Cincinnati",
+        "activity": "Experience"
+    }
+]
