@@ -7,6 +7,8 @@ var Activities = Page.extend({
 
 	title: 'Choose Your Activities',
 
+	backToPage: '#cities',
+
 	/**
 	 * 
 	 */

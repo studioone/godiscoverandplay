@@ -99,14 +99,18 @@ var Page = Backbone.View.extend({
 	 */
 	initializeHeaderButtons: function() {
 
+		var self = this;
+
 		// 
 		this.$('.back-btn').on('tap', function() {
-			window.history.back();
+
+			if (self.backToPage === undefined) return;
+			$.mobile.changePage(self.backToPage);
 		});
 
 		// 
 		this.$('.home-btn').on('tap', function() {
-			window.location.href = "/";
+			$.mobile.changePage('');
 		});
 	},
 });

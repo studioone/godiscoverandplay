@@ -1,16 +1,22 @@
-; $Id: addthis.info,v 1.7 2009/11/14 09:52:55 wesku Exp $
 name = AddThis
-description = Creates AddThis button as a block, to be used in themes and to node links.
+description = AddThis.com provides an easy way to share your content across the web.
 core = 7.x
-project = "addthis"
-datestamp = "1242663607"
-files[] = "addthis.module"
-files[] = "addthis.admin.inc"
+package = Sharing
+dependencies[] = block
+dependencies[] = field
+files[] = addthis.module
+files[] = addthis.install
+files[] = addthis.test
+files[] = includes/addthis.admin.inc
+files[] = includes/addthis.block.inc
+files[] = includes/addthis.field.inc
+files[] = classes/AddThis.php
+files[] = classes/AddThisJson.php
+configure = admin/config/user-interface/addthis
 
-
-; Information added by drupal.org packaging script on 2010-10-21
-version = "7.x-2.1-beta1"
+; Information added by drupal.org packaging script on 2013-01-30
+version = "7.x-4.0-alpha2"
 core = "7.x"
 project = "addthis"
-datestamp = "1287691291"
+datestamp = "1359545712"
 

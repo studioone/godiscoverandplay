@@ -6,6 +6,8 @@ var Tips = Page.extend({
 
 	tips: null,
 
+	backToPage: '#activities',
+
 	slider: null,
 
 	$tipsContainer: null,
