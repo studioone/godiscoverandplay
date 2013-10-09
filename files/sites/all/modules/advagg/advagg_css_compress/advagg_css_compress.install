@@ -6,7 +6,7 @@
  */
 
 /**
- * Upgrade AdvAgg CSS Compress previous verions (6.x-1.x & 7.x-1.x) to 7.x-2.x.
+ * Upgrade AdvAgg CSS Compress previous versions (6.x-1.x & 7.x-1.x) to 7.x-2.x.
  *
  * Implements hook_update_N().
  */

@@ -13,7 +13,7 @@
  */
 function advagg_drush_cache_clear(&$types) {
   // Add in Advanced CSS/JS Aggregation
-  $types['advagg'] = 'advagg_drush_smart_cache_flush';
+  $types['advagg'] = 'drush_advagg_smart_cache_flush';
 }
 
 /**
@@ -72,41 +72,41 @@ function advagg_drush_command() {
 }
 
 /**
- * Callback function for drush advagg-clear-db-cache.
+ * Callback function for drush advagg-force-new-aggregates.
  *
  * Callback is called by using drush_hook_command() where
  * hook is the name of the module (advagg) and command is the name of
  * the Drush command with all "-" characters converted to "_" characters
  */
-function drush_advagg_advagg_force_new_aggregates() {
+function drush_advagg_force_new_aggregates() {
   // Clear out the cache.
-  drush_advagg_advagg_clear_db_cache();
+  drush_advagg_clear_db_cache();
 
   // Increment counter.
   module_load_include('inc', 'advagg', 'advagg.cache');
   $new_value = advagg_increment_global_counter();
-  drush_log(dt('Global counter is now set to %new_value', array('%new_value' => $new_value)));
+  drush_log(dt('Global counter is now set to @new_value', array('@new_value' => $new_value)), 'ok');
 }
 
 /**
- * Callback function for drush advagg-clear-db-cache.
+ * Callback function for drush advagg-clear-all-files.
  *
  * Callback is called by using drush_hook_command() where
  * hook is the name of the module (advagg) and command is the name of
  * the Drush command with all "-" characters converted to "_" characters
  */
-function drush_advagg_advagg_clear_all_files() {
+function drush_advagg_clear_all_files() {
   // Clear out the cache.
-  drush_advagg_advagg_clear_db_cache();
+  drush_advagg_clear_db_cache();
 
   // Run the command.
   module_load_include('inc', 'advagg', 'advagg.cache');
   list($css_files, $js_files) = advagg_remove_all_aggregated_files();
 
   // Report back the results.
-  drush_log(dt('All AdvAgg files have been deleted. %css_count CSS files and %js_count JS files have been removed.', array(
-    '%css_count' => count($css_files),
-    '%js_count' => count($js_files),
+  drush_log(dt('All AdvAgg files have been deleted. @css_count CSS files and @js_count JS files have been removed.', array(
+    '@css_count' => count($css_files),
+    '@js_count' => count($js_files),
   )), 'ok');
 }
 
@@ -117,7 +117,7 @@ function drush_advagg_advagg_clear_all_files() {
  * hook is the name of the module (advagg) and command is the name of
  * the Drush command with all "-" characters converted to "_" characters
  */
-function drush_advagg_advagg_clear_db_cache() {
+function drush_advagg_clear_db_cache() {
   // Run the command.
   module_load_include('inc', 'advagg', 'advagg.cache');
   advagg_flush_all_cache_bins();
@@ -133,7 +133,7 @@ function drush_advagg_advagg_clear_db_cache() {
  * hook is the name of the module (advagg) and command is the name of
  * the Drush command with all "-" characters converted to "_" characters
  */
-function drush_advagg_advagg_cron() {
+function drush_advagg_cron() {
   // Run AdvAgg cron job.
   $output = advagg_cron();
 
@@ -151,25 +151,25 @@ function drush_advagg_advagg_cron() {
 
   // Output results from running advagg_remove_missing_files_from_db().
   if (empty($output[1])) {
-    drush_log(dt('No missing files found and/or could be safely cleared out of the database.'));
+    drush_log(dt('No missing files found and/or could be safely cleared out of the database.'), 'ok');
   }
   else {
-    drush_log(dt('Some missing files were found and could be safely cleared out of the database. @raw', array('@raw' => print_r($output[1], TRUE))));
+    drush_log(dt('Some missing files were found and could be safely cleared out of the database. @raw', array('@raw' => print_r($output[1], TRUE))), 'ok');
   }
 
   // Output results from running advagg_remove_old_unused_aggregates().
   if (empty($output[2])) {
-    drupal_set_message(t('No old and unused aggregates found. Nothing was deleted.'));
+    drupal_set_message(t('No old and unused aggregates found. Nothing was deleted.'), 'ok');
   }
   else {
-    drupal_set_message(t('Some old and unused aggregates were found. A total of %count database entries were removed.', array('%count' => $output[2])));
+    drupal_set_message(t('Some old and unused aggregates were found. A total of %count database entries were removed.', array('%count' => $output[2])), 'ok');
   }
 }
 
 /**
  * Flush the correct caches so CSS/JS changes go live.
  */
-function advagg_drush_smart_cache_flush() {
+function drush_advagg_smart_cache_flush() {
   // Run the command.
   module_load_include('inc', 'advagg', 'advagg.cache');
   $flushed = advagg_push_new_changes();

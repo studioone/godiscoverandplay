@@ -68,7 +68,7 @@ function advagg_css_compress_admin_settings_form($form, $form_state) {
     if (!isset($form['per_file_settings'][$dir])) {
       $form['per_file_settings'][$dir] = array(
         '#type' => 'fieldset',
-        '#title' => $dir,
+        '#title' => check_plain($dir),
         '#collapsible' => TRUE,
         '#collapsed' => TRUE,
       );

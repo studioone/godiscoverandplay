@@ -182,10 +182,40 @@ function advagg_mod_admin_settings_form() {
     )),
   );
 
+  // Make sure the multisite_dir is writable.
+  $form['#validate'][] = 'advagg_mod_admin_settings_form_validate';
+
   // Clear the cache bins on submit.
   $form['#submit'][] = 'advagg_mod_admin_settings_form_submit';
 
   return system_settings_form($form);
+}
+
+// Validate callback.
+/**
+ * Make sure the unified multisite directory was created correctly.
+ */
+function advagg_mod_admin_settings_form_validate($form, &$form_state) {
+  $multisite_dir = rtrim($form_state['values']['advagg_mod_unified_multisite_dir'], '/');
+  // Return if unified_multisite_dir is not set.
+  if (empty($multisite_dir)) {
+    return;
+  }
+
+  // Prepare directory.
+  $css_dir = $multisite_dir . '/advagg_css';
+  $js_dir = $multisite_dir . '/advagg_js';
+  if (   !file_prepare_directory($css_dir, FILE_CREATE_DIRECTORY)
+      || !file_prepare_directory($js_dir, FILE_CREATE_DIRECTORY)
+        ) {
+    if (!is_dir($multisite_dir) || !is_writable($multisite_dir)) {
+      form_set_error('advagg_mod_unified_multisite_dir', t('%dir is not a directory or can not be written to. The shared directory needs to have the same permissions as the "Public file system path" found on the <a href="@file_system_link">File System configuration page</a>.', array(
+        '%dir' => $multisite_dir,
+        '@file_system_link' => url('admin/config/media/file-system'),
+      )));
+      return;
+    }
+  }
 }
 
 // Submit callback.
@@ -196,6 +226,15 @@ function advagg_mod_admin_settings_form_submit($form, &$form_state) {
   $cache_bins = advagg_flush_caches();
   foreach ($cache_bins as $bin) {
     cache_clear_all('*', $bin, TRUE);
+  }
+
+  // If unified_multisite_dir has changed, flush menu router at the end of the
+  // request.
+  $multisite_dir = rtrim($form_state['values']['advagg_mod_unified_multisite_dir'], '/');
+  $dir = rtrim(variable_get('advagg_mod_unified_multisite_dir', ''), '/');
+  if ($multisite_dir != $dir) {
+    register_shutdown_function('advagg_get_root_files_dir', TRUE);
+    register_shutdown_function('menu_rebuild');
   }
 }
 

@@ -31,7 +31,7 @@ var Cities = Page.extend({
 		if (!city) return;
 
 		localStorage['city'] = city;
-		document.location.href = '#activities';
+		$.mobile.changePage('#activities');
 	},
 
 	getCurrentCity: function() {
@@ -94,6 +94,6 @@ var CityRing = Backbone.View.extend({
 		this.$el.data('name', this.model.get('name'));
 
 		return this;
-	},
+	}
 
 });

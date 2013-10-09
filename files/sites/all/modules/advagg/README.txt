@@ -9,6 +9,7 @@ CONTENTS OF THIS FILE
 
  * Features & benefits
  * Configuration
+ * JSMin PHP Extension
  * JavaScript Bookmarklet
  * Technical Details & Hooks
  * nginx Configuration
@@ -169,6 +170,16 @@ settings.php. In general they are settings that should not be changed.
     $conf['advagg_js_compress_ratio'] = 0.1;
 
 
+JSMIN PHP EXTENSION
+-------------------
+
+The AdvAgg JS Compress module can take advantage of jsmin.c. JavaScript parsing
+and minimizing will be done in C instead of PHP dramatically speeding up the
+process. If using PHP 5.3.10 or higher https://github.com/sqmk/pecl-jsmin is
+recommended. If using PHP 5.3.9 or lower
+http://www.ypass.net/software/php_jsmin/ is recommended.
+
+
 JAVASCRIPT BOOKMARKLET
 ----------------------
 
@@ -238,6 +249,7 @@ NGINX CONFIGURATION
 -------------------
 
 http://drupal.org/node/1116618
+Note that @drupal might be @rewrite depending on your servers configuration.
 
     ###
     ### advagg_css and advagg_js support
@@ -264,3 +276,33 @@ to this:
 Similarly, if the Fast_404 module is enabled, the 'fast_404_string_whitelisting'
 variable must be set inside of settings.php. Add this to your settings.php file:
     $conf['fast_404_string_whitelisting'][] = '/advagg_';
+
+
+If Far-Future headers are not being sent out and you are using Apache here are
+some tips to hopefully get it working. For Apache enable mod_rewrite,
+mod_headers, and mod_expires. Add the following code to the bottom of Drupal's
+core .htaccess file (located at the webroot level).
+
+    <FilesMatch "^(css|js)__[A-Za-z0-9-_]{43}__[A-Za-z0-9-_]{43}__[A-Za-z0-9-_]{43}.(css|js)(\.gz)?">
+      # No mod_headers
+      <IfModule !mod_headers.c>
+        # Use Expires Directive.
+        <IfModule mod_expires.c>
+          # Do not use ETags.
+          FileETag None
+          # Enable expirations.
+          ExpiresActive On
+          # Cache all aggregated css/js files for 480 weeks after access (A).
+          ExpiresDefault A290304000
+        </IfModule>
+      </IfModule>
+
+      <IfModule mod_headers.c>
+        # Set a far future Cache-Control header to 480 weeks.
+        Header set Cache-Control "max-age=290304000, no-transform, public"
+        # Set a far future Expires header.
+        Header set Expires "Tue, 20 Jan 2037 04:20:42 GMT"
+        # Do not use etags for cache validation.
+        Header unset ETag
+      </IfModule>
+    </FilesMatch>

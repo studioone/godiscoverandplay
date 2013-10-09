@@ -17,7 +17,7 @@ var App = Backbone.View.extend({
 		this.activities = new Activities();
 		this.cities = new Cities();
 		this.tipes = new Tips();
-	},
+	}
 
 });
 
@@ -27,12 +27,12 @@ var App = Backbone.View.extend({
 var AppRouter = Backbone.Router.extend({
 	
 	routes: {
-		"cities": "cities",
+		"cities": "cities"
 	},
 
 	cities: function() {
 		console.log(1)
-	},
+	}
 });
 
 /**
@@ -73,8 +73,8 @@ var Page = Backbone.View.extend({
 		var content = $header.html();
 
 		// dont render if there is a specified header
-		if ( content.trim() ) return;
-
+		if ( $.trim(content) ) return;
+		console.log( _.template(window.appDefaultHeader, {title: this.title}) );
 		$header.html( _.template(window.appDefaultHeader, {title: this.title}));
 	},
 
@@ -89,7 +89,8 @@ var Page = Backbone.View.extend({
 		var $footer = this.$('*[data-role="footer"]');
 		var content = $footer.html();
 		// dont render if there is a specified footer
-		if ( content.trim() ) return;
+
+		if ( $.trim(content) ) return;
 
 		$footer.html( _.template(window.appDefaultFooter, {}) );
 	},
@@ -112,6 +113,6 @@ var Page = Backbone.View.extend({
 		this.$('.home-btn').on('tap', function() {
 			$.mobile.changePage('');
 		});
-	},
+	}
 });
 

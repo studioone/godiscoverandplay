@@ -12,18 +12,6 @@ function captcha_schema() {
   // Table for positions and types of the challenges.
   $schema['captcha_points'] = array(
     'description' => 'This table describes which challenges should be added to which forms.',
-    'export' => array(
-      'key' => 'form_id',
-      'identifier' => 'captcha',
-      'default hook' => 'captcha_default_points',  // Function hook name.
-      'status' => 'mark_status',
-      'api' => array(
-        'owner' => 'captcha',
-        'api' => 'captcha',  // Base name for api include files.
-        'minimum_version' => 1,
-        'current_version' => 1,
-      ),
-    ),
     'fields' => array(
       'form_id' => array(
         'description' => 'The form_id of the form to add a CAPTCHA to.',
@@ -126,7 +114,7 @@ function captcha_schema() {
 function captcha_requirements($phase) {
   $requirements = array();
   $t = get_t();
-  if ($phase == 'runtime') {
+  if ($phase == 'runtime' && variable_get('captcha_enable_stats', FALSE)) {
     // Show the wrong response counter in the status report.
     $requirements['captcha_wrong_response_counter'] = array(
       'title' => $t('CAPTCHA'),
@@ -146,6 +134,25 @@ function captcha_requirements($phase) {
  */
 function captcha_install() {
   $t = get_t();
+  // Insert some default CAPTCHA points.
+  $form_ids = array(
+    'contact_site_form', 'contact_personal_form',
+    'user_register_form', 'user_pass', 'user_login', 'user_login_block',
+    'forum_node_form'
+  );
+  // Add form_ids of all currently known node types too.
+  foreach (node_type_get_names() as $type => $name) {
+    $form_ids[] = 'comment_node_' . $type . '_form';
+  }
+  foreach ($form_ids as $form_id) {
+    db_insert('captcha_points')
+      ->fields(array(
+        'form_id' => $form_id,
+        'module' => NULL,
+        'captcha_type' => NULL,
+      ))
+      ->execute();
+  }
 
   // Be friendly to your users: what to do after install?
   drupal_set_message($t('You can now <a href="!captcha_admin">configure the CAPTCHA module</a> for your site.',
@@ -166,62 +173,6 @@ function captcha_uninstall() {
   drupal_uninstall_schema('captcha');
   db_query("DELETE FROM {variable} WHERE name LIKE 'captcha_%'");
   cache_clear_all('variables', 'cache');
-}
-
-/**
- * Implementation of hook_update_N()
- */
-function captcha_update_1() {
-  $items = array();
-  switch ($GLOBALS['db_type']) {
-    case 'mysql':
-    case 'mysqli':
-      $items[] = update_sql("CREATE TABLE {captcha_points} (
-        form_id varchar(128) NOT NULL,
-        module varchar(64) default NULL,
-        type varchar(64) default NULL,
-        PRIMARY KEY (form_id)
-        ) /*!40100 DEFAULT CHARACTER SET utf8 */;"
-      );
-      $succes = TRUE;
-      break;
-    case 'pgsql':
-      $items[] = update_sql("CREATE TABLE {captcha_points} (
-        form_id varchar(128) NOT NULL,
-        module varchar(64) default NULL,
-        type varchar(64) default NULL,
-        PRIMARY KEY (form_id)
-        );"
-      );
-      $succes = TRUE;
-      break;
-    default:
-      drupal_set_message(t('Unsupported database.'), 'error');
-      $succes = FALSE;
-      break;
-  }
-  if ($succes) {
-    // insert some defaults
-    $form_ids = array('comment_form', 'contact_mail_user', 'contact_mail_page',
-      'user_register', 'user_pass');
-    foreach ($form_ids as $form_id) {
-      $items[] = update_sql("INSERT INTO {captcha_points} (form_id, module, type) VALUES ('$form_id', NULL, NULL)");
-    }
-  }
-  return $items;
-}
-
-/**
- * Implementation of hook_update_N()
- */
-function captcha_update_2() {
-  $items = array();
-  // insert some defaults
-  $form_ids = array('user_login', 'user_login_block');
-  foreach ($form_ids as $form_id) {
-    $items[] = update_sql("INSERT INTO {captcha_points} (form_id, module, type) VALUES ('$form_id', NULL, NULL)");
-  }
-  return $items;
 }
 
 /**

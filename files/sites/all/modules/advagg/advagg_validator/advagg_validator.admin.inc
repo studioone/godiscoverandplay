@@ -53,7 +53,7 @@ function advagg_validator_admin_settings_form() {
     if (!isset($form['per_folder_checking'][$dir])) {
       $form['per_folder_checking'][$dir] = array(
         '#type' => 'fieldset',
-        '#title' => $dir,
+        '#title' => check_plain($dir),
         '#collapsible' => TRUE,
         '#collapsed' => TRUE,
       );
@@ -103,7 +103,7 @@ function advagg_validator_admin_test_advagg_css_submit($form, &$form_state) {
     $output = httprl_pr($info);
   }
   else {
-    $output = '<pre>' . print_r($info, TRUE) . '</pre>';
+    $output = '<pre>' . check_plain(print_r($info, TRUE)) . '</pre>';
   }
   drupal_set_message($output);
 }
@@ -159,7 +159,7 @@ function advagg_validator_admin_test_advagg_css_directory_submit($form, &$form_s
     $output = httprl_pr($info);
   }
   else {
-    $output = '<pre>' . print_r($info, TRUE) . '</pre>';
+    $output = '<pre>' . check_plain(print_r($info, TRUE)) . '</pre>';
   }
   drupal_set_message($output);
 
@@ -219,7 +219,7 @@ function advagg_validator_admin_test_all_css_submit($form, &$form_state) {
     $output = httprl_pr($info);
   }
   else {
-    $output = '<pre>' . print_r($info, TRUE) . '</pre>';
+    $output = '<pre>' . check_plain(print_r($info, TRUE)) . '</pre>';
   }
   drupal_set_message($output);
 }

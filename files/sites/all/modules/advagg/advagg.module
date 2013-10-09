@@ -231,7 +231,7 @@ function advagg_file_url_alter(&$original_uri) {
   }
 
   // Remove cdn/farfuture/BASE64/prefix:value/ from the URI.
-  $original_uri = preg_replace('/^.*(cdn\/farfuture\/[A-Za-z0-9-_]{43}\/[A-Za-z]+\:[A-Za-z0-9-_]+\/)/', '', $original_uri);
+  $original_uri = preg_replace('/cdn\/farfuture\/[A-Za-z0-9-_]{43}\/[A-Za-z]+\:[A-Za-z0-9-_]+\//', '', $original_uri);
   return;
 }
 
@@ -1110,11 +1110,41 @@ function advagg_get_js($scope = 'header', $javascript = NULL, $skip_alter = FALS
   // without that group. We do not use the $key => $item type of iteration,
   // because PHP uses an internal array pointer for that, and we're modifying
   // the array order inside the loop.
-  foreach (array_keys($items) as $key) {
-    if ($items[$key]['type'] == 'setting') {
-      $item = $items[$key];
-      unset($items[$key]);
-      $items[$key] = $item;
+  if ($scope == 'footer' && module_exists('advagg_mod') && variable_get('advagg_mod_js_footer', ADVAGG_MOD_JS_FOOTER) == 2) {
+    // Get all settings from the items array.
+    $settings_js = array();
+    foreach (array_keys($items) as $key) {
+      if ($items[$key]['type'] == 'setting') {
+        $settings_js[] = $items[$key];
+        unset($items[$key]);
+      }
+    }
+
+    // Add settings array back in right before the footer shift happened.
+    if (!empty($settings_js)) {
+      $counter = 0;
+      foreach ($items as $key => $item) {
+        // Move $settings_js to the bottom of the js that was added to the
+        // header, but has now been moved to the footer via advagg_mod.
+        if ($item['group'] > 9000) {
+          array_splice($items, $counter, 0, $settings_js);
+          unset($settings_js);
+          break;
+        }
+        $counter++;
+      }
+    }
+    if (!empty($settings_js)) {
+      $items = array_merge($items, $settings_js);
+    }
+  }
+  else {
+    foreach (array_keys($items) as $key) {
+      if ($items[$key]['type'] == 'setting') {
+        $item = $items[$key];
+        unset($items[$key]);
+        $items[$key] = $item;
+      }
     }
   }
 
@@ -1143,7 +1173,7 @@ function advagg_get_js($scope = 'header', $javascript = NULL, $skip_alter = FALS
   // Aurora & Omega themes uses alter without checking previous value.
   if (variable_get('advagg_enforce_scripts_callback', TRUE)) {
     $element_info = &drupal_static('element_info');
-    if ($element_info['scripts']['#aggregate_callback'] != '_advagg_aggregate_js') {
+    if (empty($element_info['scripts']) || $element_info['scripts']['#aggregate_callback'] != '_advagg_aggregate_js') {
       advagg_element_info_alter($element_info);
     }
   }
@@ -1488,6 +1518,8 @@ function advagg_get_hash_settings($hash) {
 /**
  * Get the CSS & JS path for advagg.
  *
+ * @param $reset
+ *   Set to TRUE to reset the static variables.
  * @return
  *   Example below:
  *   array(
@@ -1501,12 +1533,12 @@ function advagg_get_hash_settings($hash) {
  *     ),
  *   )
  */
-function advagg_get_root_files_dir() {
+function advagg_get_root_files_dir($reset = FALSE) {
   $css_paths = &drupal_static(__FUNCTION__ . '_css');
   $js_paths = &drupal_static(__FUNCTION__ . '_js');
 
   // Make sure directories are available and writable.
-  if (empty($css_paths) || empty($js_paths)) {
+  if (empty($css_paths) || empty($js_paths) || $reset) {
     $css_paths[0] = 'public://advagg_css';
     $js_paths[0] = 'public://advagg_js';
 

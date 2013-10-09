@@ -441,7 +441,7 @@ function advagg_admin_get_file_info_submit($form, &$form_state) {
     $output = httprl_pr($info);
   }
   else {
-    $output = '<pre>' . print_r($info, TRUE) . '</pre>';
+    $output = '<pre>' . check_plain(print_r($info, TRUE)) . '</pre>';
   }
   drupal_set_message($output);
 }

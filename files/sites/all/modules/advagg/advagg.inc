@@ -315,7 +315,7 @@ function advagg_get_info_on_file($filename, $bypass_cache = FALSE) {
       return $filename_hashes[$cache_id];
     }
 
-    // Try cache backend next.
+    // Try cache back-end next.
     $cache = cache_get($cache_id, 'cache_advagg_info');
     if (!empty($cache->data)) {
       return $cache->data;
@@ -455,7 +455,7 @@ function advagg_generate_groups($files_to_aggregate) {
         $changed = FALSE;
         if (variable_get('advagg_ie_css_selector_limiter', ADVAGG_IE_CSS_SELECTOR_LIMITER)) {
           $file_info += advagg_get_info_on_file($file_info['data']);
-          // Prevent CSS rules exceding 4095 due to limits with IE9 and below.
+          // Prevent CSS rules exceeding 4095 due to limits with IE9 and below.
           $ext = isset($file_info['fileext']) ? $file_info['fileext'] : pathinfo($file_info['data'], PATHINFO_EXTENSION);
           if ($ext == 'css') {
             $selector_count += $file_info['linecount'];
@@ -667,9 +667,9 @@ function advagg_load_css_stylesheet($file, $optimize, $aggregate_settings = NULL
   }
 
   // Set http/https context.
-  $orginal_base_root = $GLOBALS['base_root'];
-  $orginal_base_url = $GLOBALS['base_url'];
-  $orginal_is_https = $GLOBALS['is_https'];
+  $original_base_root = $GLOBALS['base_root'];
+  $original_base_url = $GLOBALS['base_url'];
+  $original_is_https = $GLOBALS['is_https'];
   $GLOBALS['is_https'] = $aggregate_settings['variables']['is_https'];
   if ($aggregate_settings['variables']['is_https']) {
     $GLOBALS['base_root'] = str_replace('http://', 'https://', $GLOBALS['base_root']);
@@ -698,9 +698,9 @@ function advagg_load_css_stylesheet($file, $optimize, $aggregate_settings = NULL
   $contents = preg_replace_callback('/url\(\s*[\'"]?(?![a-z]+:|\/+)([^\'")]+)[\'"]?\s*\)/i', '_drupal_build_css_path', $contents);
 
   // Set the http/https context back.
-  $GLOBALS['base_root'] = $orginal_base_root;
-  $GLOBALS['base_url'] = $orginal_base_url;
-  $GLOBALS['is_https'] = $orginal_is_https;
+  $GLOBALS['base_root'] = $original_base_root;
+  $GLOBALS['base_url'] = $original_base_url;
+  $GLOBALS['is_https'] = $original_is_https;
 
   // Return the stylesheets contents.
   return $contents;

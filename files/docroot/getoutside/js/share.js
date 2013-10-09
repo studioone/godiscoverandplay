@@ -7,7 +7,7 @@ var Share = {
 		
 		this.openWindow( encodeURI(url) );
 
-		this.window.addEventListener('loadstart', function(e) { 
+		$(this.window).on('loadstart', function(e) { 
 			if (e.url.match('latest_status_id'))
 				self.window.close();
 		});
@@ -30,7 +30,7 @@ var Share = {
 
 		this.openWindow( encodeURI(url) );
 
-		this.window.addEventListener('loadstart', function(e) { 
+		$(this.window).on('loadstart', function(e) { 
 			if (!e.url.match('facebook'))
 				self.window.close();
 		});
@@ -41,9 +41,9 @@ var Share = {
 
 		this.window = window.open(url, '_blank', 'location=no');
 
-		this.window.addEventListener('exit', function(e) { 
+		$(this.window).on('exit', function(e) { 
 			self.window = null;
 		});
-	},
+	}
 
 };

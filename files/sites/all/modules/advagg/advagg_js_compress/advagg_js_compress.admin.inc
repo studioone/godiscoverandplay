@@ -26,7 +26,13 @@ function advagg_js_compress_admin_settings_form($form, $form_state) {
     $description .= t('JSMin is the C complied version and is about 25 times faster. Recommend using it.');
   }
   else {
-    $description .= t('You can use the much faster C version of JSMin by installing the <a href="@php_jsmin">JSMin PHP Extension</a> on this server.', array('@php_jsmin' => 'http://www.ypass.net/software/php_jsmin/'));
+    if (!defined('PHP_VERSION_ID') || PHP_VERSION_ID < 50310) {
+      $link = 'http://www.ypass.net/software/php_jsmin/';
+    }
+    else {
+      $link = 'https://github.com/sqmk/pecl-jsmin/';
+    }
+    $description .= t('You can use the much faster C version of JSMin by installing the <a href="@php_jsmin">JSMin PHP Extension</a> on this server.', array('@php_jsmin' => $link));
   }
   $form['advagg_js_compressor'] = array(
     '#type' => 'radios',
@@ -88,7 +94,7 @@ function advagg_js_compress_admin_settings_form($form, $form_state) {
     if (!isset($form['per_file_settings'][$dir])) {
       $form['per_file_settings'][$dir] = array(
         '#type' => 'fieldset',
-        '#title' => $dir,
+        '#title' => check_plain($dir),
         '#collapsible' => TRUE,
         '#collapsed' => TRUE,
       );

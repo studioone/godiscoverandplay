@@ -46,7 +46,7 @@ var Activities = Page.extend({
 			return;
 
 		this.storeActivities(activities);
-		window.location.href = "#tips";
+		$.mobile.changePage("#tips");
 	},
 
 	/**

@@ -1,3 +1,7 @@
+$.mobile.focusPage = function ( page ) {
+    return;
+}
+
 var cities = [
 	{
 		x: 355,
@@ -68,7 +72,7 @@ var cities = [
 		label: 'MIA'
 	},
 	{
-		x: 267,
+		x: 277,
 		y: 117,
 		name: 'Cincinnati',
 		label: 'CIN'

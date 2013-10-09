@@ -79,7 +79,7 @@ function advagg_js_compress_advagg_save_aggregate_alter(&$files_to_save, $aggreg
     return;
   }
   module_load_include('inc', 'advagg', 'advagg');
-  // Make sure all files in this aggregrate are compatible with packer.
+  // Make sure all files in this aggregate are compatible with packer.
   foreach ($files as $file => $settings) {
     $info = advagg_get_info_on_file($file);
     if (!isset($info['advagg_js_compress'][$compressor]['code'])) {
@@ -94,7 +94,7 @@ function advagg_js_compress_advagg_save_aggregate_alter(&$files_to_save, $aggreg
       }
     }
     // If this file causes php to bomb or the ratio is way too good then do not
-    // use packer on this aggregrate.
+    // use packer on this aggregate.
     if (   !isset($info['advagg_js_compress'][$compressor]['code'])
         || $info['advagg_js_compress'][$compressor]['code'] == -1
         || $info['advagg_js_compress'][$compressor]['code'] == -3
@@ -103,7 +103,7 @@ function advagg_js_compress_advagg_save_aggregate_alter(&$files_to_save, $aggreg
     }
   }
 
-  // See if a .gz file of this aggregrate already exists.
+  // See if a .gz file of this aggregate already exists.
   $gzip_exists = FALSE;
   foreach ($files_to_save as $uri => $contents) {
     // See if this uri contains .gz near the end of it.
@@ -359,7 +359,7 @@ function advagg_js_compress_run_test($filename, $compressors = array()) {
       // Execute request.
       httprl_send_request();
 
-      // If php bombs out, try each compressor indivudially.
+      // If php bombs out, try each compressor individually.
       foreach ($results as $key => $value) {
         if ($value['code'] == -1) {
           $sub_result = array();

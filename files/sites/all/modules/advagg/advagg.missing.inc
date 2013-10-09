@@ -87,7 +87,7 @@ function advagg_missing_generate() {
     watchdog('advagg', 'One of the alter hooks failed when generating this file: %uri. Thus this file was created without any alter hooks.', array('%uri' => $uri), WATCHDOG_CRITICAL);
   }
 
-  // Output file's contents if creating the file was sucessfull.
+  // Output file's contents if creating the file was successful.
   // This function will call exit.
   advagg_missing_send_saved_file($files_to_save, $uri, $created, $type, $redirect_counter);
 }
@@ -115,7 +115,6 @@ function advagg_missing_send_saved_file($files_to_save, $uri, $created, $type, $
     }
     if (!isset($files_to_save[$uri]) && file_exists($uri) && filesize($uri)) {
       $files_to_save[$uri] = file_get_contents($uri);
-      header('Last-Modified: ' . gmdate('D, d M Y H:i:s \G\M\T', filemtime($uri)));
     }
   }
 
@@ -126,7 +125,7 @@ function advagg_missing_send_saved_file($files_to_save, $uri, $created, $type, $
   if (ob_get_level()) {
     ob_end_clean();
   }
-  // Set far future headers.
+  // Set generic far future headers.
   advagg_missing_set_farfuture_headers();
   // Return compressed content if we can.
   if ($return_compressed) {
@@ -144,19 +143,26 @@ function advagg_missing_send_saved_file($files_to_save, $uri, $created, $type, $
     }
   }
   else {
-    $data = reset($files_to_save);
+    $data = trim(reset($files_to_save));
   }
 
   // Output file and exit.
   if (!empty($data)) {
     // Send out a 200 OK status.
     header($_SERVER['SERVER_PROTOCOL'] . " 200 OK");
+
+    // Insure the Last-Modified header is set so 304's work correctly.
+    if (file_exists($uri) && $filemtime = @filemtime($uri)) {
+      header('Last-Modified: ' . gmdate('D, d M Y H:i:s \G\M\T', $filemtime));
+    }
+
     if ($type == 'css') {
       header("Content-Type: text/css");
     }
     elseif ($type == 'js') {
       header("Content-Type: text/javascript; charset=UTF-8");
     }
+    header('X-AdvAgg: Generated file at ' . REQUEST_TIME);
 
     print $data;
     exit();
@@ -213,7 +219,7 @@ function advagg_missing_set_farfuture_headers() {
  * @param $filename
  *   Just the filename no path information.
  * @param $no_alters
- *   Set to TRUE to do the bare ammount of processing on the file.
+ *   Set to TRUE to do the bare amount of processing on the file.
  *
  * @return
  *   On failure a string saying why it failed.
@@ -306,7 +312,7 @@ function advagg_htaccess_check_generate($files_to_save, $type, $force = FALSE) {
       continue;
     }
 
-    advagg_save_data($htaccess_file, $data);
+    advagg_save_data($htaccess_file, $data, $force);
   }
 }
 
@@ -636,9 +642,6 @@ function advagg_save_aggregate($filename, $files, $type, $aggregate_settings) {
     if (!file_exists($uri) || filesize($uri) == 0) {
       watchdog('advagg', 'Write to file system failed. %uri', array('%uri' => $uri), WATCHDOG_EMERGENCY);
     }
-    else {
-      header('Last-Modified: ' . gmdate('D, d M Y H:i:s \G\M\T', filemtime($uri)));
-    }
   }
   return $files_to_save;
 }
@@ -717,7 +720,7 @@ function advagg_missing_fast404($msg = '') {
 }
 
 /**
- * Read the atime value for the given aggregrate.
+ * Read the atime value for the given aggregate.
  *
  * @param $aggregate_filenames_hash
  *   Hash of the groupings of files.
@@ -817,7 +820,7 @@ function advagg_parse_media_blocks($css) {
     $last_start = $start + 1;
   }
 
-  // Add in any remaing css rules after the last @media statement.
+  // Add in any remaining css rules after the last @media statement.
   if (strlen($css) > $last_start) {
     $insert = trim(substr($css, $last_start));
     if (!empty($insert)) {
