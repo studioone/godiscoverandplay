@@ -153,24 +153,7 @@ function advagg_validator_test_css_files($files, $options = array()) {
  *   Info from the w3c server.
  */
 function advagg_validator_test_css_file_w3c($filename, &$validator_options = array()) {
-//   // Get public URL for file.
-//   $test_url = file_create_url($filename);
-//   $parse = @parse_url($test_url);
-//
-//   // Get IP Address.
-//   if (ip2long($parse['host']) !== FALSE) {
-//     $ip = $parse['host'];
-//   }
-//   else {
-//     $ip = gethostbyname($parse['host']);
-//   }
-//   // If IP is not externally routable, send raw text instead of uri.
-//   if (ip2long($ip) === FALSE || advagg_validator_reserved_ip($ip)) {
-//     $validator_options['text'] = file_get_contents($filename);
-//   }
-//   else {
-//     $validator_options['uri'] = $test_url;
-//   }
+  // Get CSS files contents.
   $validator_options['text'] = file_get_contents($filename);
 
   // Add in defaults.
@@ -356,41 +339,4 @@ function advagg_validator_file_scan_directory($dir, $mask, $options = array(), $
   }
 
   return $files;
-}
-
-/**
- * Returns TRUE if the IP is a reserved one.
- *
- * @see http://stackoverflow.com/questions/14125735/how-to-know-if-an-ip-is-external-or-not/14125871#14125871
- * @see http://en.wikipedia.org/wiki/Reserved_IP_addresses
- *
- * @param $ip
- *   IP address string.
- * @return
- *   TRUE or FALSE.
- */
-function advagg_validator_reserved_ip($ip) {
-  $ip_long = sprintf('%u', ip2long($ip));
-
-  $reserved_ips = array(
-    '0'          => '16777215',   // 000.000.000.000 - 000.255.255.255
-    '167772160'  => '184549375',  // 100.000.000.000 - 010.255.255.255
-    '1681915904' => '1686110207', // 100.064.000.000 - 100.127.255.255
-    '2130706432' => '2147483647', // 127.000.000.000 - 127.255.255.255
-    '2851995648' => '2852061183', // 169.254.000.000 - 169.254.255.255
-    '2886729728' => '2887778303', // 172.016.000.000 - 172.031.255.255
-    '3221225472' => '3221225479', // 192.000.000.000 - 192.000.000.007
-    '3221225984' => '3221226239', // 192.000.002.000 - 192.000.002.255
-    '3232235520' => '3232301055', // 192.168.000.000 - 192.168.255.255
-    '3323068416' => '3323199487', // 198.018.000.000 - 198.019.255.255
-    '3325256704' => '3325256959', // 198.051.100.000 - 198.051.100.255
-    '3405803776' => '3405804031', // 203.000.113.000 - 203.000.113.255
-    '3758096384' => '4026531839', // 224.000.000.000 - 239.255.255.255
-  );
-  foreach ($reserved_ips as $ip_start => $ip_end) {
-    if (($ip_long >= $ip_start) && ($ip_long <= $ip_end)) {
-      return TRUE;
-    }
-  }
-  return FALSE;
 }

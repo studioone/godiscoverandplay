@@ -492,10 +492,21 @@ function advagg_requirements($phase) {
       if (!file_exists($file_path . '/cdn.advagg.inc')) {
         $requirements['advagg_module_cdn_patch'] = array(
           'title' => $t('Adv CSS/JS Agg - CDN module'),
-          'severity' => REQUIREMENT_ERROR,
-          'value' => $t('The CDN module needs a patch to be compatible with AdvAgg.'),
-          'description' => $t('You need to install the latest patch in <a href="@link">this issue</a>.', array('@link' => 'http://drupal.org/node/1942230')),
+          'severity' => REQUIREMENT_WARNING,
+          'value' => $t('The CDN module needs a patch to be fully compatible with AdvAgg.'),
+          'description' => $t('You should install the latest patch in <a href="@link">this issue</a>.', array('@link' => 'http://drupal.org/node/1942230')),
         );
+      }
+      else {
+        module_load_include('inc', 'cdn', 'cdn.advagg');
+        if (!function_exists('cdn_advagg_context_alter')) {
+          $requirements['advagg_module_cdn_patch'] = array(
+            'title' => $t('Adv CSS/JS Agg - CDN module'),
+            'severity' => REQUIREMENT_ERROR,
+            'value' => $t('The CDN module needs to use the latest patch to be compatible with AdvAgg.'),
+            'description' => $t('You need to install the latest patch in <a href="@link">this issue</a>.', array('@link' => 'http://drupal.org/node/1942230')),
+          );
+        }
       }
     }
     if (module_exists('labjs')) {

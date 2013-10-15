@@ -1,3 +1,4 @@
+/* global Drupal:false */
 
 /**
  * @file
@@ -14,6 +15,7 @@
  *   false if string only contains ASCII characters.
  */
 function advagg_is_unicode(str){
+  "use strict";
   for (var i = 0, n = str.length; i < n; i++) {
     if (str.charCodeAt( i ) > 255) {
       return true;
@@ -30,6 +32,7 @@ function advagg_is_unicode(str){
  *   false so the form does not get submitted.
  */
 function advagg_toggle_cookie() {
+  "use strict";
   // Fallback to submitting the form for Unicode domains like ".рф"
   if (advagg_is_unicode(document.location.hostname)) {
     return true;

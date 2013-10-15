@@ -519,5 +519,54 @@ function hook_advagg_modify_js_pre_render_alter(&$children, &$elements) {
 }
 
 /**
+ * Allow other modules to modify $css_groups right before it is processed.
+ *
+ * @param $original
+ *   array of original settings.
+ * @param $aggregate_settings
+ *   array of contextual settings.
+ * @param $mode
+ *   0 to change context to what is inside of $aggregate_settings.
+ *   1 to change context back.
+ *
+ * @see advagg_context_css().
+ * @see advagg_advagg_context_alter().
+ */
+function hook_advagg_context_alter(&$original, $aggregate_settings, $mode) {
+  if ($mode == 0) {
+    // Change context.
+    $original['base_root'] = $GLOBALS['base_root'];
+    $original['base_url'] = $GLOBALS['base_url'];
+    $original['base_path'] = $GLOBALS['base_path'];
+    $original['is_https'] = $GLOBALS['is_https'];
+    $GLOBALS['is_https'] = $aggregate_settings['variables']['is_https'];
+    if ($aggregate_settings['variables']['is_https']) {
+      $GLOBALS['base_root'] = str_replace('http://', 'https://', $GLOBALS['base_root']);
+      $GLOBALS['base_url'] = str_replace('http://', 'https://', $GLOBALS['base_url']);
+    }
+    else {
+      $GLOBALS['base_root'] = str_replace('https://', 'http://', $GLOBALS['base_root']);
+      $GLOBALS['base_url'] = str_replace('https://', 'http://', $GLOBALS['base_url']);
+    }
+    $GLOBALS['base_path'] = $aggregate_settings['variables']['base_path'];
+  }
+  elseif ($mode == 1) {
+    // Change context back.
+    if (isset($original['base_root'])) {
+      $GLOBALS['base_root'] = $original['base_root'];
+    }
+    if (isset($original['base_url'])) {
+      $GLOBALS['base_url'] = $original['base_url'];
+    }
+    if (isset($original['base_path'])) {
+      $GLOBALS['base_path'] = $original['base_path'];
+    }
+    if (isset($original['is_https'])) {
+      $GLOBALS['is_https'] = $original['is_https'];
+    }
+  }
+}
+
+/**
  * @} End of "addtogroup hooks".
  */

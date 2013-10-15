@@ -287,7 +287,8 @@ class CSSmin
 
         // preg_replace_callback error on windows only.
         // https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port/issues/4
-        if (strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN') {
+        $php_os = strtoupper(substr(PHP_OS, 0, 3));
+        if ($php_os !== 'WIN' && $php_os !== 'DAR') {
           // Remove the spaces before the things that should not have spaces before them.
           // But, be careful not to turn "p :link {...}" into "p:link{...}"
           // Swap out any pseudo-class colons with the token, and then swap back.

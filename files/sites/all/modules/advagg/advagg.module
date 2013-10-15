@@ -86,6 +86,11 @@ define('ADVAGG_SHOW_BYPASS_COOKIE_MESSAGE', TRUE);
  */
 define('ADVAGG_URL_INBOUND_ALTER', TRUE);
 
+/**
+ * Allow JavaScript insertion into any scope even if theme does not support it.
+ */
+define('ADVAGG_SCRIPTS_SCOPE_ANYWHERE', FALSE);
+
 // Core hook implementations.
 /**
  * Inbound URL rewrite helper
@@ -119,6 +124,7 @@ function advagg_hook_info() {
     'advagg_build_aggregate_plans_alter',
     'advagg_changed_files',
     'advagg_scan_for_changes',
+    'advagg_context_alter',
   );
   $hooks = array();
   foreach ($advagg_hooks as $hook) {
@@ -984,15 +990,17 @@ function _advagg_process_html(&$variables) {
           $variables['page_bottom'] .= $scripts;
           $js_cache['page_bottom'] = $scripts;
         }
-        // Scripts in other places.
-        elseif (isset($variables[$scope]) && is_string($variables[$scope]) && array_key_exists($scope, $GLOBALS['theme_info']->info['regions'])) {
-          $variables[$scope] .= $scripts;
-          $js_cache[$scope] = $scripts;
-        }
-        // Add javascript to scripts if we can't find the region in the theme.
-        else {
-          $variables['scripts'] .= $scripts;
-          $js_cache['scripts'] .= $scripts;
+        elseif (variable_get('advagg_scripts_scope_anywhere', ADVAGG_SCRIPTS_SCOPE_ANYWHERE)) {
+          // Scripts in other places.
+          if (isset($variables[$scope]) && is_string($variables[$scope]) && array_key_exists($scope, $GLOBALS['theme_info']->info['regions'])) {
+            $variables[$scope] .= $scripts;
+            $js_cache[$scope] = $scripts;
+          }
+          // Add javascript to scripts if we can't find the region in the theme.
+          else {
+            $variables['scripts'] .= $scripts;
+            $js_cache['scripts'] .= $scripts;
+          }
         }
       }
 
@@ -1309,53 +1317,81 @@ function advagg_enabled() {
       drupal_set_message(t('Please run <a href="@link">database updates</a>. AdvAgg will remain disabled until done.', array('@link' => url('update.php'))), 'error');
     }
   }
-
-  // Disable AdvAgg if maintenance mode is defined.
-  if (defined('MAINTENANCE_MODE')) {
-    $GLOBALS['conf']['advagg_enabled'] = FALSE;
-  }
-
-  // Only run code below if advagg is enabled.
-  if (variable_get('advagg_enabled', ADVAGG_ENABLED)) {
-    // Don't use AdvAgg or preprocessing functions if the disable cookie is set.
-    $cookie_name = 'AdvAggDisabled';
-    $key = drupal_hash_base64(drupal_get_private_key());
-    if (!empty($_COOKIE[$cookie_name]) && $_COOKIE[$cookie_name] == $key) {
-      $GLOBALS['conf']['advagg_enabled'] = FALSE;
-      $GLOBALS['conf']['preprocess_css'] = FALSE;
-      $GLOBALS['conf']['preprocess_js'] = FALSE;
-
-      // Let the user know that the AdvAgg bypass cookie is currently set.
-      static $msg_set;
-      if (!isset($msg_set) && variable_get('advagg_show_bypass_cookie_message', ADVAGG_SHOW_BYPASS_COOKIE_MESSAGE)) {
-        $msg_set = TRUE;
-        if (user_access('administer site configuration')) {
-          drupal_set_message(t('The AdvAgg bypass cookie is currently enabled. Turn it off by going to the <a href="@advagg_operations">AdvAgg Operations</a> page and clicking the <em>Toggle the "aggregation bypass cookie" for this browser</em> button.', array(
-          '@advagg_operations' => url(advagg_admin_config_root_path() . '/advagg/operations', array('fragment' => 'edit-bypass')),
-          )));
-        }
-        else {
-          drupal_set_message(t('The AdvAgg bypass cookie is currently enabled. Turn it off by <a href="@login">logging in</a> with a user with the "administer site configuration" permissions and going to the AdvAgg Operations page (located at @advagg_operations) and clicking the <em>Toggle the "aggregation bypass cookie" for this browser</em> button.', array(
-            '@login' => 'user/login',
-            '@advagg_operations' => advagg_admin_config_root_path() . '/advagg/operations',
-          )));
-        }
-      }
-    }
-    // Disable advagg if requested.
-    if (isset($_GET['advagg']) && $_GET['advagg'] == -1 && user_access('bypass advanced aggregation')) {
-      $GLOBALS['conf']['advagg_enabled'] = FALSE;
-      $GLOBALS['conf']['preprocess_css'] = FALSE;
-      $GLOBALS['conf']['preprocess_js'] = FALSE;
-    }
-    // Enable core preprocessing if requested.
-    if (isset($_GET['advagg-core']) && $_GET['advagg-core'] == 1 && user_access('bypass advanced aggregation')) {
+  else {
+    // Allow for AdvAgg to be enabled per request.
+    if (   isset($_GET['advagg'])
+        && $_GET['advagg'] == 1
+        && !defined('MAINTENANCE_MODE')
+        && user_access('bypass advanced aggregation')
+          ) {
+      $GLOBALS['conf']['advagg_enabled'] = TRUE;
       $GLOBALS['conf']['preprocess_css'] = TRUE;
       $GLOBALS['conf']['preprocess_js'] = TRUE;
     }
-    // Enable debugging if requested.
-    if (isset($_GET['advagg-debug']) && $_GET['advagg-debug'] == 1 && user_access('bypass advanced aggregation')) {
-      $GLOBALS['conf']['advagg_debug'] = TRUE;
+
+    // Disable AdvAgg if maintenance mode is defined.
+    if (defined('MAINTENANCE_MODE')) {
+      $GLOBALS['conf']['advagg_enabled'] = FALSE;
+    }
+    // Only run code below if advagg is enabled.
+    if (variable_get('advagg_enabled', ADVAGG_ENABLED)) {
+      // Don't use AdvAgg or preprocessing functions if the disable cookie is set.
+      $cookie_name = 'AdvAggDisabled';
+      $key = drupal_hash_base64(drupal_get_private_key());
+      if (!empty($_COOKIE[$cookie_name]) && $_COOKIE[$cookie_name] == $key) {
+        $GLOBALS['conf']['advagg_enabled'] = FALSE;
+        $GLOBALS['conf']['preprocess_css'] = FALSE;
+        $GLOBALS['conf']['preprocess_js'] = FALSE;
+
+        // Let the user know that the AdvAgg bypass cookie is currently set.
+        static $msg_set;
+        if (!isset($msg_set) && variable_get('advagg_show_bypass_cookie_message', ADVAGG_SHOW_BYPASS_COOKIE_MESSAGE)) {
+          $msg_set = TRUE;
+          if (user_access('administer site configuration')) {
+            drupal_set_message(t('The AdvAgg bypass cookie is currently enabled. Turn it off by going to the <a href="@advagg_operations">AdvAgg Operations</a> page and clicking the <em>Toggle the "aggregation bypass cookie" for this browser</em> button.', array(
+            '@advagg_operations' => url(advagg_admin_config_root_path() . '/advagg/operations', array('fragment' => 'edit-bypass')),
+            )));
+          }
+          else {
+            drupal_set_message(t('The AdvAgg bypass cookie is currently enabled. Turn it off by <a href="@login">logging in</a> with a user with the "administer site configuration" permissions and going to the AdvAgg Operations page (located at @advagg_operations) and clicking the <em>Toggle the "aggregation bypass cookie" for this browser</em> button.', array(
+              '@login' => 'user/login',
+              '@advagg_operations' => advagg_admin_config_root_path() . '/advagg/operations',
+            )));
+          }
+        }
+      }
+      // Disable advagg if requested.
+      if (   isset($_GET['advagg'])
+          && $_GET['advagg'] == -1
+          && user_access('bypass advanced aggregation')
+            ) {
+        $GLOBALS['conf']['advagg_enabled'] = FALSE;
+        $GLOBALS['conf']['preprocess_css'] = FALSE;
+        $GLOBALS['conf']['preprocess_js'] = FALSE;
+      }
+      // Disable core preprocessing if requested.
+      if (   isset($_GET['advagg-core'])
+          && $_GET['advagg-core'] == 0
+          && user_access('bypass advanced aggregation')
+            ) {
+        $GLOBALS['conf']['preprocess_css'] = FALSE;
+        $GLOBALS['conf']['preprocess_js'] = FALSE;
+      }
+      // Enable core preprocessing if requested.
+      if (   isset($_GET['advagg-core'])
+          && $_GET['advagg-core'] == 1
+          && user_access('bypass advanced aggregation')
+            ) {
+        $GLOBALS['conf']['preprocess_css'] = TRUE;
+        $GLOBALS['conf']['preprocess_js'] = TRUE;
+      }
+      // Enable debugging if requested.
+      if (   isset($_GET['advagg-debug'])
+          && $_GET['advagg-debug'] == 1
+          && user_access('bypass advanced aggregation')
+            ) {
+        $GLOBALS['conf']['advagg_debug'] = TRUE;
+      }
     }
   }
 
@@ -1392,6 +1428,7 @@ function advagg_current_hooks_hash_array() {
       'advagg_global_counter' => advagg_get_global_counter(),
       'base_path' => $GLOBALS['base_path'],
       'advagg_ie_css_selector_limiter' => variable_get('advagg_ie_css_selector_limiter', ADVAGG_IE_CSS_SELECTOR_LIMITER),
+      'advagg_scripts_scope_anywhere' => variable_get('advagg_scripts_scope_anywhere', ADVAGG_SCRIPTS_SCOPE_ANYWHERE)
     ),
     'hooks' => advagg_hooks_implemented(FALSE),
   );
@@ -1465,6 +1502,7 @@ function advagg_hooks_implemented($all = TRUE) {
     'advagg_save_aggregate_alter' => array(),
     'advagg_current_hooks_hash_array_alter' => array(),
     'advagg_get_root_files_dir_alter' => array(),
+    'advagg_context_alter' => array(),
   );
   if ($all) {
     $hooks += array(

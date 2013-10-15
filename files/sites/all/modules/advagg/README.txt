@@ -35,7 +35,8 @@ Advanced CSS/JS Aggregation core features:
  * Url query string to turn off aggregation for that request. ?advagg=0 will
    turn off file aggregation if the user has the "bypass advanced aggregation"
    permission. ?advagg=-1 will completely bypass all of Advanced CSS/JS
-   Aggregations modules and submodules.
+   Aggregations modules and submodules. ?advagg=1 will enable Advanced CSS/JS
+   Aggregation if it is currently disabled.
  * Button on the admin page for dropping a cookie that will turn off file
    aggregation. Useful for theme development.
  * Gzip support. All aggregated files can be pre-compressed into a .gz file and
@@ -64,7 +65,8 @@ Included submodules:
    * Inline all CSS/JS for given paths.
    * Use a shared directory for a unified multisite.
  * advagg_validator:
-   Validate all root CSS files using jigsaw.w3.org.
+   Validate all CSS files using jigsaw.w3.org. Check all CSS files with CSSLint.
+   Check all JS files with JSHint.
 
 
 CONFIGURATION
@@ -141,6 +143,10 @@ settings.php. In general they are settings that should not be changed.
 
     // Run advagg_url_inbound_alter().
     $conf['advagg_url_inbound_alter'] = TRUE;
+
+    // Allow JavaScript insertion into any scope even if theme does not support
+    // it.
+    $conf['advagg_scripts_scope_anywhere'] = FALSE;
 
     // Set the jQuery UI version.
     $conf['advagg_css_cdn_jquery_ui_version'] = '1.8.7';

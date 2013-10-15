@@ -30,7 +30,6 @@ function advagg_scan_for_changes() {
       // Select the keys to compare.
       $keys_to_compare = array(
         'filesize',
-        'mtime',
         'content_hash',
         'linecount',
       );
@@ -40,6 +39,10 @@ function advagg_scan_for_changes() {
           $changed = TRUE;
           break;
         }
+      }
+      // Compare mtime if it is not zero.
+      if (!$changed && !empty($info['mtime']) && $row['mtime'] != $info['mtime']) {
+        $changed = TRUE;
       }
 
       if (!$changed) {
@@ -376,20 +379,38 @@ function advagg_remove_missing_files_from_db() {
  *   Count of the number of rows removed from the databases.
  */
 function advagg_remove_old_unused_aggregates() {
+  $advagg_aggregates_versions_del = 0;
+  $advagg_aggregates_del = 0;
+
+  // Find orphaned aggregate versions entries.
+  // Create join query.
+  $subquery_aggregates = db_select('advagg_aggregates', 'aa')
+    ->fields('aa', array('aggregate_filenames_hash'));
+  // Create main query.
+  $query = db_select('advagg_aggregates_versions', 'aav')
+    ->fields('aav', array('aggregate_filenames_hash'))
+    ->groupBy('aav.aggregate_filenames_hash');
+  $query->leftjoin($subquery_aggregates, 'aa', 'aa.aggregate_filenames_hash=aav.aggregate_filenames_hash');
+  $query->isNull('aa.aggregate_filenames_hash');
+  $results = $query->execute();
+  // If we have an orphaned db entry, delete it.
+  if (!empty($results)) {
+    foreach ($results as $row) {
+      $advagg_aggregates_versions_del += db_delete('advagg_aggregates_versions')
+        ->condition('aggregate_filenames_hash', $row->aggregate_filenames_hash)
+        ->execute();
+    }
+  }
+
   // Delete aggregate versions that have not been accessed in the last 6 weeks.
-  $advagg_aggregates_versions_del = db_delete('advagg_aggregates_versions')
+  $advagg_aggregates_versions_del += db_delete('advagg_aggregates_versions')
     ->condition('atime', REQUEST_TIME - 3628800, '<')
     ->execute();
-  if ($advagg_aggregates_versions_del <= 0) {
-    // Nothing was deleted.
-    return FALSE;
-  }
 
   // See if any aggregates are orphaned now.
   // Create join query.
   $subquery_aggregates_versions = db_select('advagg_aggregates_versions', 'aav')
     ->fields('aav', array('aggregate_filenames_hash'));
-
   // Create main query.
   $query = db_select('advagg_aggregates', 'aa')
     ->fields('aa', array('aggregate_filenames_hash'))
@@ -400,7 +421,6 @@ function advagg_remove_old_unused_aggregates() {
 
   // If we have an orphaned db entry, delete it.
   if (!empty($results)) {
-    $advagg_aggregates_del = 0;
     foreach ($results as $row) {
       $advagg_aggregates_del += db_delete('advagg_aggregates')
         ->condition('aggregate_filenames_hash', $row->aggregate_filenames_hash)

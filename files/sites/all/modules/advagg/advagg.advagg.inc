@@ -98,3 +98,43 @@ function advagg_advagg_build_aggregate_plans_alter(&$files, &$modified, $type) {
   // Replace $files array with new aggregate filenames.
   $files = advagg_generate_filenames(array($temp_new_files), $type);
 }
+
+
+/**
+ * Implement hook_advagg_context_alter().
+ */
+function advagg_advagg_context_alter(&$original, $aggregate_settings, $mode) {
+  if ($mode == 0) {
+    // Change context.
+    $original['base_root'] = $GLOBALS['base_root'];
+    $original['base_url'] = $GLOBALS['base_url'];
+    $original['base_path'] = $GLOBALS['base_path'];
+    $original['is_https'] = $GLOBALS['is_https'];
+    $GLOBALS['is_https'] = $aggregate_settings['variables']['is_https'];
+    if ($aggregate_settings['variables']['is_https']) {
+      $GLOBALS['base_root'] = str_replace('http://', 'https://', $GLOBALS['base_root']);
+      $GLOBALS['base_url'] = str_replace('http://', 'https://', $GLOBALS['base_url']);
+    }
+    else {
+      $GLOBALS['base_root'] = str_replace('https://', 'http://', $GLOBALS['base_root']);
+      $GLOBALS['base_url'] = str_replace('https://', 'http://', $GLOBALS['base_url']);
+    }
+    $GLOBALS['base_path'] = $aggregate_settings['variables']['base_path'];
+  }
+  elseif ($mode == 1) {
+    // Change context back.
+    if (isset($original['base_root'])) {
+      $GLOBALS['base_root'] = $original['base_root'];
+    }
+    if (isset($original['base_url'])) {
+      $GLOBALS['base_url'] = $original['base_url'];
+    }
+    if (isset($original['base_path'])) {
+      $GLOBALS['base_path'] = $original['base_path'];
+    }
+    if (isset($original['is_https'])) {
+      $GLOBALS['is_https'] = $original['is_https'];
+    }
+  }
+}
+

@@ -95,7 +95,10 @@ function advagg_mod_admin_settings_form() {
         '#type' => 'checkbox',
         '#title' => t('Translate CSS content strings'),
         '#default_value' => variable_get('advagg_mod_css_translate', ADVAGG_MOD_CSS_TRANSLATE),
-        '#description' => t('Run strings inside of quotes of the content attribute through the <a href="@t">t() function</a>.', array('@t' => 'https://api.drupal.org/api/drupal/includes!bootstrap.inc/function/t/7')),
+        '#description' => t('Run strings inside of quotes of the content attribute through the <a href="@t">t() function</a>. An alternative to this can be found in this <a href="@post">blog post</a>.', array(
+          '@t' => 'https://api.drupal.org/api/drupal/includes!bootstrap.inc/function/t/7',
+          '@post' => 'http://fourkitchens.com/blog/2013/08/15/multilingual-css-generated-content-drupal',
+        )),
       );
     }
   }

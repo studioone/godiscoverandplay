@@ -80,7 +80,7 @@ function advagg_js_cdn_js_alter(&$javascript) {
       if (!$add_in_ui) {
         // Add in backup.
         $values['weight'] += 0.00001;
-        $values['data'] = 'window.jQuery || document.write("<script src=\'' . base_path() .   drupal_get_path('module', 'advagg_js_cdn') . '/js/jquery-ui.js' . '\'>\x3C/script>")';
+        $values['data'] = 'window.jQuery.ui || document.write("<script src=\'' . base_path() .   drupal_get_path('module', 'advagg_js_cdn') . '/js/jquery-ui.js' . '\'>\x3C/script>")';
         $values['type'] = 'inline';
         $javascript[$name . 'backup.js'] = $values;
 
