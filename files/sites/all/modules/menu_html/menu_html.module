@@ -1,29 +1,52 @@
 <?php
 /**
- * hook_form_alter
+ * @file
+ * menu_html.module
  */
-function menu_html_form_alter(&$form, $form_state, $form_id) {
-  if ($form_id == 'menu_edit_item' || strpos($form_id, '_node_form') > 0) {
-    $item = $form['menu']['#item'];
-    $form['menu']['html'] = array(
-      '#type' => 'checkbox',
-      '#title' => t('Allow html'),
-      '#default_value' => isset($item['options']['html']) ? $item['options']['html'] : 0,
-      '#description' => t('If you want to add html tags to the title of a menu, enable this. This should only be accessible to trusted users.'),
-      );
+
+/**
+ * Implements hook_form_node_alter().
+ */
+function menu_html_form_node_form_alter(&$form, $form_state, $form_id) {
+  if (!isset($form['menu']) || !user_access('administer menu')) {
+    return;
   }
+
+  $item = isset($form['menu']['link']['options']['#value']['html']) ? TRUE : FALSE;
+  if ($item) {
+    $form['menu']['link_title']['#maxlength'] = 255;
+  }
+
+  $form['menu']['link']['menu_html'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Allow html'),
+    // "html" is "1" or unset.
+    '#default_value' => $item ? 1 : 0,
+    '#description' => t('If you want to add html tags to the title of a menu, enable this. This should only be accessible to trusted users.'),
+  );
 }
 
 /**
- * hook_menu_link_alter
- *
+ * Implements hook_form_FORM_ID_alter().
+ */
+function menu_html_form_menu_edit_item_alter(&$form, $form_state, $form_id) {
+  $form['link_title']['#maxlength'] = 255;
+  $form['menu_html'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Allow html'),
+    '#default_value' => array_key_exists('html', $form['options']['#value']) ? $form['options']['#value']['html'] : 0,
+    '#description' => t('If you want to add html tags to the title of a menu, enable this. This should only be accessible to trusted users.'),
+  );
+}
+
+/**
+ * Implements hook_menu_link_alter().
  */
 function menu_html_menu_link_alter(&$item) {
-  if (isset($item['html']) && $item['html']) {
-    $item['options']['html'] = $item['html'];
-  } else {
-    if(isset($item['options']['html'])) {
-        unset($item['options']['html']);
-    }
+  if (isset($item['menu_html']) && $item['menu_html']) {
+    $item['options']['html'] = $item['menu_html'];
+  }
+  elseif (isset($item['menu_html']) && $item['menu_html'] == 0) {
+    unset($item['options']['html']);
   }
 }

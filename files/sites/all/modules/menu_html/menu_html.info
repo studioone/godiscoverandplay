@@ -5,9 +5,9 @@ core = 7.x
 
 
 
-; Information added by drupal.org packaging script on 2013-10-01
-version = "7.x-1.x-dev"
+; Information added by drupal.org packaging script on 2013-10-19
+version = "7.x-1.0"
 core = "7.x"
 project = "menu_html"
-datestamp = "1380586835"
+datestamp = "1382213114"
 

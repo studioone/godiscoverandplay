@@ -147,21 +147,21 @@
     <div id="home-slides" class="slides clearfix">
       <div class="slides_container">
         <div class="slide">
-           <img src="<?php print base_path() . drupal_get_path('theme', 'clean_theme') . '/images/slide-image-1.jpg'; ?>" height="350" width="660"/>
+           <a href="article/do-more/getting-fit-dog-walking"><img src="<?php print base_path() . drupal_get_path('theme', 'clean_theme') . '/images/slide-image-1.jpg'; ?>" height="350" width="660"/></a>
            <?php if ($slide1_cap): ?><div class="caption">
              <?php if ($slide1_head) { print '<h3>' . $slide1_head . '</h3>';  }?>
              <?php if ($slide1_desc) { print $slide1_desc;  }?>
            </div><?php endif; ?>
         </div>
         <div class="slide">
-           <img src="<?php print base_path() . drupal_get_path('theme', 'clean_theme') . '/images/slide-image-2.jpg'; ?>" height="350" width="660"/>
+           <a href="article/get-ahead/cardio-exercise-alternatives"><img src="<?php print base_path() . drupal_get_path('theme', 'clean_theme') . '/images/slide-image-2.jpg'; ?>" height="350" width="660"/></a>
            <?php if ($slide2_cap): ?><div class="caption">
              <?php if ($slide2_head) { print '<h3>' . $slide2_head . '</h3>';  }?>
              <?php if ($slide2_desc) { print $slide2_desc;  }?>
            </div><?php endif; ?>
         </div>
         <div class="slide">
-           <img src="<?php print base_path() . drupal_get_path('theme', 'clean_theme') . '/images/slide-image-3.jpg'; ?>" height="350" width="660"/>
+           <a href="article/teched-out/running-races"><img src="<?php print base_path() . drupal_get_path('theme', 'clean_theme') . '/images/slide-image-3.jpg'; ?>" height="350" width="660"/></a>
            <?php if ($slide3_cap): ?><div class="caption">
              <?php if ($slide3_head) { print '<h3>' . $slide3_head . '</h3>';  }?>
              <?php if ($slide3_desc) { print $slide3_desc;  }?>

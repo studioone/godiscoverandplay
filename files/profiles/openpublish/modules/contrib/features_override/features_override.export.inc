@@ -83,7 +83,7 @@ function features_override_get_overrides($component_key = FALSE, $element_key = 
     module_load_include('inc', 'features', 'features.export');
     features_include();
     foreach (features_get_components() as $component => $info) {
-      if (empty($info['default_hook']) || $component == 'features_override_items' || $component == 'features_overrides' 
+      if (empty($info['default_hook']) || $component == 'features_override_items' || $component == 'features_overrides'
         || !features_get_default_alter_hook($component) || !features_hook($component, 'features_export_render')) {
         continue;
       }
@@ -257,7 +257,8 @@ function _features_override_set_additions(&$default, &$normal, &$additions, $ign
         continue;
       }
       if (is_object($normal)) {
-        if (!is_object($default) || !property_exists($default, $key) || (is_scalar($value) && ($default->$key !== $value))) {
+        if (!is_object($default) || !property_exists($default, $key) ||
+           (is_scalar($value) && (features_var_export($default->$key) !== features_var_export($value)))) {
           $_keys = array_merge($keys, array(array('type' => 'object', 'key' => $key)));
           $additions[features_override_make_key($_keys)] = array(
             'keys' => $_keys,
@@ -270,7 +271,8 @@ function _features_override_set_additions(&$default, &$normal, &$additions, $ign
         }
       }
       elseif (is_array($normal)) {
-        if (!is_array($default) || !array_key_exists($key, $default) || (is_scalar($value) && ($default[$key] !== $value))) {
+        if (!is_array($default) || !array_key_exists($key, $default) ||
+           (is_scalar($value) && (features_var_export($default[$key]) !== features_var_export($value)))) {
           $_keys = array_merge($keys, array(array('type' => 'array', 'key' => $key)));
           $additions[features_override_make_key($_keys)] = array(
             'keys' => $_keys,
@@ -308,7 +310,7 @@ function _features_override_set_deletions(&$default, &$normal, &$deletions, $ign
       if (isset($ignore_keys[$key]) && ($level == $ignore_keys[$key])) {
         continue;
       }
-  
+
       if (is_object($default) && is_object($normal)) {
         if (!property_exists($normal, $key)) {
           $_keys = array_merge($keys, array(array('type' => 'object', 'key' => $key)));
@@ -367,9 +369,7 @@ function features_override_export_keys($keys) {
  */
 function features_override_remove_recursion(&$item) {
   _features_override_remove_recursion($item);
-  _features_override_remove_recursion_markers($item);
 }
-
 
 /**
  * Helper to removes recursion from an object/array.
@@ -377,53 +377,26 @@ function features_override_remove_recursion(&$item) {
  * @param $item
  *   An object or array passed by reference.
  */
-function _features_override_remove_recursion(&$item) {
-  $is_object = is_object($item);
-  if ($is_object) {
-    $item->{FEATURES_OVERRIDE_RECURSION_MARKER} = 1;
-  }
-  else {
-    $item[FEATURES_OVERRIDE_RECURSION_MARKER] = 1;
-  }
-  foreach ($item as $key => $value) {
-    if (is_array($value) || is_object($value)) {
-      $remove = is_array($value) ? !empty($value[FEATURES_OVERRIDE_RECURSION_MARKER]) : !empty($value->{FEATURES_OVERRIDE_RECURSION_MARKER});
-      if ($remove) {
-        if ($is_object) {
-          unset($item->$key);
+function _features_override_remove_recursion(&$object, &$stack = array()) {
+  if ((is_object($object) || is_array($object)) && $object) {
+    if (!in_array($object, $stack, true)) {
+      $stack[] = $object;
+      foreach ($object as $key => &$subobject) {
+        if (_features_override_remove_recursion($subobject, $stack)) {
+          if (is_object($object)) {
+            unset($object->$key);
         }
         else {
-          unset($item[$key]);
-        }
-      }
-      else {
-        features_override_remove_recursion($value);
-      }
+            unset($object[$key]);
     }
   }
 }
-
-/**
- * Helper to removes recursion from an object/array.
- *
- * @param $item
- *   An object or array passed by reference.
- */
-function _features_override_remove_recursion_markers(&$item) {
-  $is_object = is_object($item);
-  foreach ($item as $key => $value) {
-    if ($key === FEATURES_OVERRIDE_RECURSION_MARKER) {
-      if ($is_object) {
-        unset($item->$key);
       }
       else {
-        unset($item[$key]);
-      }
-    }
-    elseif (is_array($value) || is_object($value)) {
-      _features_override_remove_recursion_markers($value);
+      return TRUE;
     }
   }
+  return FALSE;
 }
 
 /**
