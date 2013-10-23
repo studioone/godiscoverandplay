@@ -1,0 +1,3 @@
+<?php
+global $base_url;
+drupal_add_js($base_url.'/sites/all/libraries/jquery.lazyload.min.js');

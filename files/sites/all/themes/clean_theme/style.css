@@ -1700,3 +1700,9 @@ padding: 2px 33px;
   padding-top: 10px;
   display: none;
 }
+
+.view-sponsor-unit {
+width: 300px;
+height: 93px;
+padding-left: 90px;
+}
