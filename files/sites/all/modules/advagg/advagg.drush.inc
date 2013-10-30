@@ -135,7 +135,7 @@ function drush_advagg_clear_db_cache() {
  */
 function drush_advagg_cron() {
   // Run AdvAgg cron job.
-  $output = advagg_cron();
+  $output = advagg_cron(TRUE);
 
   // Output results from running advagg_delete_stale_aggregates().
   list($css_files, $js_files) = $output[0];

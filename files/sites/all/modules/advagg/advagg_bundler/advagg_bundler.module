@@ -194,6 +194,7 @@ function advagg_bundler_analysis($filename = '', $force = FALSE) {
       $query = $query->fields('af', array('filename', 'filesize', 'mtime', 'changes', 'linecount', 'filename_hash'))
         ->fields('aa', $fields)
         ->orderBy('aa.counter', 'DESC');
+      $query->comment('Query called from ' . __FUNCTION__ . '()');
       $results = $query->execute();
 
       $analysis = array();
@@ -211,6 +212,7 @@ function advagg_bundler_analysis($filename = '', $force = FALSE) {
             ->condition('aa.filename_hash', $row->filename_hash)
             ->groupBy('aa.aggregate_filenames_hash')
             ->orderBy('aa.aggregate_filenames_hash', 'ASC');
+          $subquery_aggregates->comment('Query called from ' . __FUNCTION__ . '()');
           $aa_results = $subquery_aggregates->execute();
           $aa_rows = array();
           foreach ($aa_results as $aa_row) {

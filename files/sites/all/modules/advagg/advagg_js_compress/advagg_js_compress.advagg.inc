@@ -207,8 +207,8 @@ function advagg_js_compress_prep(&$contents, $filename, $aggregate_settings, $ad
       $contents = jsmin($contents);
     }
 
-    // Save into cache.
-    cache_set($cache_id, $contents, 'cache_advagg_info');
+    // Cache minified data for at least 1 day.
+    cache_set($cache_id, $contents, 'cache_advagg_info', REQUEST_TIME+86400);
   }
 
   if ($test_ratios) {

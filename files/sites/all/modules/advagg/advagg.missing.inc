@@ -393,6 +393,7 @@ function advagg_get_files_from_hashes($type, $aggregate_filenames_hash, $aggrega
     ->condition('aav.aggregate_contents_hash', $aggregate_contents_hash);
   $query->join($subquery_aggregates, 'aa', 'aa.aggregate_filenames_hash=aav.aggregate_filenames_hash');
   $query->join($subquery_files, 'af', 'af.filename_hash=aa.filename_hash');
+  $query->comment('Query called from ' . __FUNCTION__ . '()');
   $query = $query->fields('af', array('filename'))
     ->fields('aa', array('settings'))
     ->orderBy('porder', 'ASC')

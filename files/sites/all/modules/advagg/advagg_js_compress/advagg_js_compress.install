@@ -31,3 +31,13 @@ function advagg_js_compress_update_7200(&$sandbox) {
 
   return t('Upgraded AdvAgg JS Compress to 7.x-2.x.');
 }
+
+/**
+ * Clear the cache_advagg_info cache.
+ *
+ * Implements hook_update_N().
+ */
+function advagg_js_compress_update_7201(&$sandbox) {
+  cache_clear_all('advagg:js_compress:', 'cache_advagg_info', TRUE);
+  return t('Cleared the cache_advagg_info cache of js_compress entries.');
+}
