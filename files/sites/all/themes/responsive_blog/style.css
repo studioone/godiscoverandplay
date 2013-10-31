@@ -618,7 +618,7 @@ td{
   float: left;
 }
 .page-node #content-wrap img {
-  border: 1px solid #CCCCCC;
+  /*border: 1px solid #CCCCCC;*/
   padding: 6px;
   height: auto;
   max-width: 97.4%;
