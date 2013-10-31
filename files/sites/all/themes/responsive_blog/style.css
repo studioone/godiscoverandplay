@@ -1751,7 +1751,7 @@ color: #fff;
 }
 
 .view-frontgetahead {
-padding-bottom: 165px;
+padding-bottom: 125px;
 }
 
 .view-frontgetahead .views-field-view-node a {
@@ -1782,7 +1782,7 @@ color: #fff;
 }
 
 .view-fronttechedout {
-padding-bottom: 15px;
+padding-bottom: 165px;
 }
 
 .view-fronttechedout .views-field-view-node a {
@@ -2066,4 +2066,16 @@ padding: 2px 33px;
 .view-image-poll-list .field-name-body {
   padding-top: 10px;
   display: none;
+}
+
+.view-sponsor-unit h2{
+display: none;
+}
+
+.view-sidebar-advertisement h2{
+display: none;
+}
+
+.view-bottom-advertisement h2{
+display: none;
 }
