@@ -849,11 +849,12 @@ function advagg_install_check_via_http(&$requirements) {
           }
           if (!$apache_module_missing) {
             // Recommend servers configuration be adjusted.
+            $request->data = '...';
             $requirements['advagg_' . $type . '_gzip' . $key] = array(
               'title' => $t('Adv CSS/JS Agg - gzip'),
               'severity' => REQUIREMENT_WARNING,
               'value' => $t('Gzip is failing for %type files.', array('%type' => $type)),
-              'description' => $t('The web servers configuration will need to be adjusted. In most cases make sure that the webroots .htaccess file still contains this section "Rules to correctly serve gzip compressed CSS and JS files".'),
+              'description' => $t('The web servers configuration will need to be adjusted. In most cases make sure that the webroots .htaccess file still contains this section "Rules to correctly serve gzip compressed CSS and JS files". Raw request info: <pre>@request</pre>', array('@request' => print_r($request, TRUE))),
             );
           }
         }

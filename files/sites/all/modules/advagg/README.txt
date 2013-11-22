@@ -261,11 +261,12 @@ Note that @drupal might be @rewrite depending on your servers configuration.
     ### advagg_css and advagg_js support
     ###
     location ~* files/advagg_(?:css|js)/ {
-      access_log off;
-      expires    max;
-      add_header ETag "";
-      add_header Cache-Control "max-age=290304000, no-transform, public";
-      try_files  $uri @drupal;
+      gzip_static on;
+      access_log  off;
+      expires     max;
+      add_header  ETag "";
+      add_header  Cache-Control "max-age=290304000, no-transform, public";
+      try_files   $uri @drupal;
     }
 
 
@@ -312,3 +313,10 @@ core .htaccess file (located at the webroot level).
         Header unset ETag
       </IfModule>
     </FilesMatch>
+
+
+If pages on the site stop working correctly or looks broken after Advanced
+CSS/JS Aggregation is enabled, the first step should be to validate the
+individual CSS and/or JS files using the included advagg_validator module -
+something as simple as an errant unfinished comment in one file may cause entire
+files to be ignored.

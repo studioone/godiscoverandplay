@@ -466,8 +466,8 @@ function advagg_ajax_render_alter(&$commands) {
   }
 
   // Add in AdvAgg JS.
-  $scripts_header = advagg_get_js('header', $items['js']);
-  $scripts_footer = advagg_get_js('footer', $items['js']);
+  $scripts_footer = advagg_get_js('footer', $items['js'], TRUE);
+  $scripts_header = advagg_get_js('header', $items['js'], TRUE);
   $extra_commands = array();
   if (!empty($scripts_header)) {
     $extra_commands[] = ajax_command_prepend('head', $scripts_header);
@@ -582,6 +582,8 @@ function advagg_preprocess_html() {
       'content' =>  'IE=edge,chrome=1',
     ),
     '#weight' => '-99999',
+    '#prefix' => '<!--[if IE]>',
+    '#suffix' => '<![endif]-->',
   );
 
   // Add header meta tag for IE to head.
@@ -1106,6 +1108,7 @@ function advagg_get_full_js($javascript = NULL, $skip_alter = FALSE) {
  * @see drupal_js_defaults()
  */
 function advagg_get_js($scope = 'header', $javascript = NULL, $skip_alter = FALSE) {
+  $javascript_settings_data = &drupal_static(__FUNCTION__, array());
   if (empty($javascript)) {
     return '';
   }
@@ -1166,9 +1169,20 @@ function advagg_get_js($scope = 'header', $javascript = NULL, $skip_alter = FALS
 
   // Provide the page with information about the individual JavaScript files
   // used, information not otherwise available when aggregation is enabled.
-  $setting['ajaxPageState']['js'] = array_fill_keys(array_keys($items), 1);
+  // Also filter out empty items due to numeric array keys.
+  $setting['ajaxPageState']['js'] = array_fill_keys(array_filter(array_keys($items), 'advagg_remove_short_keys'), 1);
   unset($setting['ajaxPageState']['js']['settings']);
   drupal_add_js($setting, 'setting');
+  // For performance reasons we store this locally.
+  if ($scope != 'header') {
+    if (!empty($javascript_settings_data)) {
+      foreach ($javascript_settings_data as $js_data) {
+        $items['settings']['data'][] = $js_data;
+      }
+      unset($javascript_settings_data);
+    }
+    $javascript_settings_data[] = $setting;
+  }
 
   // If we're outputting the header scope, then this might be the final time
   // that drupal_get_js() is running, so add the setting to this output as well
@@ -1195,6 +1209,24 @@ function advagg_get_js($scope = 'header', $javascript = NULL, $skip_alter = FALS
   }
 
   return drupal_render($elements);
+}
+
+/**
+ * Callback for array_filter. Will return FALSE if strlen < 3.
+ *
+ * @param $array_value
+ *   A value from an array.
+ *
+ * @return
+ *   TRUE or FALSE.
+ */
+function advagg_remove_short_keys($array_value) {
+  if (strlen($array_value) < 3) {
+    return FALSE;
+  }
+  else {
+    return TRUE;
+  }
 }
 
 /**
@@ -1227,6 +1259,13 @@ function advagg_get_js_scopes($javascript) {
   // Default to header if nothing found.
   if (empty($scopes)) {
     $scopes['header'] = TRUE;
+  }
+
+  // Process header last.
+  if (isset($scopes['header']) && count($scopes) > 1) {
+    $temp = $scopes['header'];
+    unset($scopes['header']);
+    $scopes['header'] = $temp;
   }
 
   // Return the scopes.
@@ -1643,6 +1682,7 @@ function advagg_build_aggregates($filenames) {
  *   $items, and $settings.
  */
 function advagg_build_ajax_js_css() {
+  $settings = array();
   // Ajax responses aren't rendered with html.tpl.php, so we have to call
   // drupal_get_css() and drupal_get_js() here, in order to have new files added
   // during this request to be loaded by the page. We only want to send back
@@ -1655,6 +1695,10 @@ function advagg_build_ajax_js_css() {
     // reload all of the files, instead we return no new files.
     if (empty($_POST['ajax_page_state'][$type])) {
       $items[$type] = array();
+      $scripts = drupal_add_js();
+      if (!empty($scripts['settings'])) {
+        $settings = $scripts['settings'];
+      }
     }
     else {
       $function = 'drupal_add_' . $type;
@@ -1680,14 +1724,13 @@ function advagg_build_ajax_js_css() {
   // HTML in the page. We pass TRUE as the $skip_alter argument to prevent the
   // data from being altered again, as we already altered it above. Settings are
   // handled separately, afterwards.
-  $settings = array();
   if (isset($items['js']['settings'])) {
     $settings = $items['js']['settings'];
     unset($items['js']['settings']);
   }
   $styles = drupal_get_css($items['css'], TRUE);
-  $scripts_header = drupal_get_js('header', $items['js'], TRUE);
   $scripts_footer = drupal_get_js('footer', $items['js'], TRUE);
+  $scripts_header = drupal_get_js('header', $items['js'], TRUE);
   return array($styles, $scripts_header, $scripts_footer, $items, $settings);
 }
 
@@ -1865,7 +1908,7 @@ function advagg_pre_render_scripts($elements) {
     // If a group of files has been aggregated into a single file,
     // $group['data'] contains the URI of the aggregate file. Add a single
     // script element for this file.
-    if ($group['type'] == 'file' && isset($group['data'])) {
+    if (isset($group['type']) && $group['type'] == 'file' && isset($group['data'])) {
       $element = $element_defaults;
       $element['#attributes']['src'] = file_create_url($group['data']);
       $element['#browsers'] = $group['browsers'];
@@ -1920,8 +1963,18 @@ function advagg_pre_render_scripts($elements) {
         // Element properties that depend on item type.
         switch ($item['type']) {
           case 'setting':
+            // If in development mode and PHP >= 5.4.0 pretty print JSON.
+            static $php540;
+            if (!isset($php540)) {
+              $php540 = version_compare(PHP_VERSION, '5.4.0', '>=');
+            }
             $json_data = drupal_array_merge_deep_array($item['data']);
-            $json_data = @drupal_json_encode($json_data);
+            if ($php540 && variable_get('advagg_cache_level', ADVAGG_CACHE_LEVEL) == -1) {
+              $json_data = @json_encode($json_data, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_PRETTY_PRINT);
+            }
+            else {
+              $json_data = @drupal_json_encode($json_data);
+            }
             $element['#value_prefix'] = $embed_prefix;
             $element['#value'] = 'jQuery.extend(Drupal.settings, ' . $json_data . ");";
             $element['#value_suffix'] = $embed_suffix;
@@ -2017,6 +2070,11 @@ function advagg_group_js($javascript) {
       case 'inline':
         // Do not group external, settings, and inline items.
         $group_keys = FALSE;
+        break;
+
+      default:
+        // Define this here so we dont get undefined alerts down below.
+        $group_keys = NULL;
         break;
     }
 
