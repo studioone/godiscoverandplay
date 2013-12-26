@@ -8,9 +8,10 @@ files[] = views/field_collection_handler_relationship.inc
 configure = admin/structure/field-collections
 package = Fields
 
-; Information added by drupal.org packaging script on 2012-12-25
-version = "7.x-1.0-beta5"
+
+; Information added by drush on 2013-12-13
+version = "7.x-1.0-beta4+14-dev"
 core = "7.x"
 project = "field_collection"
-datestamp = "1356475963"
+datestamp = "1386961709"
 

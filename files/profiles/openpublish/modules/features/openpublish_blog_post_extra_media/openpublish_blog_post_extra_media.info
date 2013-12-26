@@ -11,9 +11,9 @@ features[ctools][] = "field_group:field_group:1"
 features[field][] = "node-openpublish_blog_post-field_op_caption"
 features[field_group][] = "group_op_blogpost_media|node|openpublish_blog_post|form"
 
-; Information added by drupal.org packaging script on 2012-10-30
-version = "7.x-1.0-beta7"
+; Information added by Drupal.org packaging script on 2013-12-13
+version = "7.x-1.0-beta9"
 core = "7.x"
 project = "openpublish"
-datestamp = "1351635440"
+datestamp = "1386961705"
 

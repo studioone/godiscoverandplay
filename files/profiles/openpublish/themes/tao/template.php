@@ -437,7 +437,7 @@ function tao_pager_link($vars) {
  */
 function tao_views_mini_pager($vars) {
   $tags = $vars['tags'];
-  $quantity = isset($vars['quantity'])?$vars['quantity']:0;
+  $quantity = $vars['quantity'];
   $element = $vars['element'];
   $parameters = $vars['parameters'];
 

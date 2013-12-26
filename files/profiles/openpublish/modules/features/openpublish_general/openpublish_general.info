@@ -25,9 +25,9 @@ features[menu_custom][] = menu-footer-links
 features[menu_custom][] = menu-utility-nav
 features[variable][] = context_ui_dialog_enabled
 
-; Information added by drupal.org packaging script on 2012-10-30
-version = "7.x-1.0-beta7"
+; Information added by Drupal.org packaging script on 2013-12-13
+version = "7.x-1.0-beta9"
 core = "7.x"
 project = "openpublish"
-datestamp = "1351635440"
+datestamp = "1386961705"
 

@@ -69,9 +69,15 @@ function captcha_set_form_id_setting($form_id, $captcha_type) {
  *   or in the form 'captcha/Math'.
  */
 function captcha_get_form_id_setting($form_id, $symbolic=FALSE) {
-  $result = db_query("SELECT module, captcha_type FROM {captcha_points} WHERE form_id = :form_id",
-    array(':form_id' =>  $form_id));
-  $captcha_point = $result->fetchObject();
+  if (module_exists('ctools')) {
+    ctools_include('export');
+    $captcha_point = array_pop(ctools_export_load_object('captcha_points', 'names', array($form_id)));
+  }
+  else {
+    $result = db_query("SELECT module, captcha_type FROM {captcha_points} WHERE form_id = :form_id",
+      array(':form_id' =>  $form_id));
+    $captcha_point = $result->fetchObject();
+  }
   if (!$captcha_point) {
     $captcha_point = NULL;
   }
@@ -94,7 +100,25 @@ function captcha_get_form_id_setting($form_id, $symbolic=FALSE) {
   return $captcha_point;
 }
 
-
+/**
+ * Helper function to load all captcha points.
+ *
+ * @return array of all captcha_points
+ */
+function captcha_get_captcha_points() {
+  if (module_exists('ctools')) {
+    ctools_include('export');
+    $captcha_points = ctools_export_load_object('captcha_points', 'all');
+  }
+  else {
+    $captcha_points = array();
+    $result = db_select('captcha_points', 'cp')->fields('cp')->orderBy('form_id')->execute();
+    foreach ($result as $captcha_point) {
+      $captcha_points[] = $captcha_point;
+    }
+  }
+  return $captcha_points;
+}
 /**
  * Helper function for generating a new CAPTCHA session.
  *

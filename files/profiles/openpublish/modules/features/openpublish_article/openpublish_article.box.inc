@@ -17,6 +17,13 @@ function openpublish_article_default_box() {
   $box->plugin_key = 'simple';
   $box->title = '';
   $box->description = 'Ad: 300x250';
+  $box->options = array(
+    'body' => array(
+      'value' => '<p><img alt="&quot;We help you be awesome!&quot; - Phase2 Technology" src="/profiles/openpublish/images/banner_phase2.jpg" /></p>',
+      'format' => 'full_html',
+    ),
+    'additional_classes' => '',
+  );
   $export['ad_300x250_1'] = $box;
 
   return $export;
