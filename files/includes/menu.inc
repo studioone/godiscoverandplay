@@ -1926,13 +1926,21 @@ function menu_local_tasks($level = 0) {
     }
 
     // Get all tabs (also known as local tasks) and the root page.
-    $result = db_select('menu_router', NULL, array('fetch' => PDO::FETCH_ASSOC))
-      ->fields('menu_router')
-      ->condition('tab_root', $router_item['tab_root'])
-      ->condition('context', MENU_CONTEXT_INLINE, '<>')
-      ->orderBy('weight')
-      ->orderBy('title')
-      ->execute();
+    $cid = 'local_tasks:' . $router_item['tab_root'];
+    if ($cache = cache_get($cid, 'cache_menu')) {
+      $result = $cache->data;
+    }
+    else {
+      $result = db_select('menu_router', NULL, array('fetch' => PDO::FETCH_ASSOC))
+        ->fields('menu_router')
+        ->condition('tab_root', $router_item['tab_root'])
+        ->condition('context', MENU_CONTEXT_INLINE, '<>')
+        ->orderBy('weight')
+        ->orderBy('title')
+        ->execute()
+        ->fetchAll();
+      cache_set($cid, $result, 'cache_menu');
+    }
     $map = $router_item['original_map'];
     $children = array();
     $tasks = array();
@@ -3616,7 +3624,7 @@ function _menu_router_build($callbacks) {
       $sort[$path] = $number_parts;
     }
   }
-  array_multisort($sort, SORT_NUMERIC, $menu, SORT_STRING);
+  array_multisort($sort, SORT_NUMERIC, $menu);
   // Apply inheritance rules.
   foreach ($menu as $path => $v) {
     $item = &$menu[$path];
