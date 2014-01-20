@@ -89,10 +89,13 @@ function addthis_displays_addthis_display_markup__addthis_basic_toolbox($options
  */
 function addthis_displays_addthis_display_markup__addthis_basic_button($options = array()) {
 
+  $addthis = AddThis::getInstance();
+
   $button_img = 'http://s7.addthis.com/static/btn/sm-share-en.gif';
   if ($options['#display']['settings']['button_size'] == 'big') {
     $button_img = 'http://s7.addthis.com/static/btn/v2/lg-share-en.gif';
   }
+  $button_img = $addthis->transformToSecureUrl($button_img);
 
   $element = array(
     '#theme' => 'addthis_wrapper',
@@ -104,7 +107,7 @@ function addthis_displays_addthis_display_markup__addthis_basic_button($options 
       ),
     ),
   );
-  $element['#attributes'] += AddThis::getInstance()->getAddThisAttributesMarkup($options);
+  $element['#attributes'] += $addthis->getAddThisAttributesMarkup($options);
 
   // Create img button
   $image = array(
