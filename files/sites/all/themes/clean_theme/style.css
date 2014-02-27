@@ -1696,9 +1696,17 @@ text-indent: -999px;
 padding: 2px 33px;
 }
 
-.view-image-poll-list .field-name-body {
+/*.view-image-poll-list .field-name-body {
   padding-top: 10px;
   display: none;
+}*/
+
+.node-advpoll > div.content > form + div.field-name-body {
+display: none;
+}
+
+.node-advpoll > div.content > div + div.field-name-body {
+display: block;
 }
 
 .view-sponsor-unit {

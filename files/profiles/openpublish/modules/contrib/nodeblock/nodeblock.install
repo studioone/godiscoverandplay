@@ -171,6 +171,7 @@ function nodeblock_update_7102() {
  * Add new block title column in db.
  */
 function nodeblock_update_7103() {
+  module_load_include('module', 'nodeblock');
   if (!db_field_exists('nodeblock', 'block_title')) {
     db_add_field('nodeblock', 'block_title', array(
       'description' => 'The block title for a block.',

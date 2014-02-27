@@ -242,11 +242,6 @@ function nodeblock_form_node_form_alter(&$form, &$form_state) {
         $view_modes = array();
         $view_modes['node_block_default'] = t('Default');
         $view_modes += nodeblock_get_view_modes($node->type);
-        $options = array(
-          'node_block_default' => t('Default'),
-          '0' => t('Hide'),
-          '1' => t('Show'),
-        );
 
         $form['nodeblock']['view_mode'] = array(
           '#type' => 'select',
@@ -257,6 +252,11 @@ function nodeblock_form_node_form_alter(&$form, &$form_state) {
         );
       }
 
+      $options = array(
+        'node_block_default' => t('Default'),
+        '0' => t('Hide'),
+        '1' => t('Show'),
+      );
       if (isset($overrides['node_link'])) {
         $form['nodeblock']['node_link'] = array(
           '#type' => 'select',
@@ -377,16 +377,17 @@ function nodeblock_node_update($node) {
 
   if ($nid) {
     $values = _nodeblock_defaults($node->type);
+    $overrides = nodeblock_type_node_overrides($node->type);
+
     if (isset($node->nodeblock)) {
       $values = $node->nodeblock + $values;
     }
 
-    if ((isset($values['custom_machine_name']) && !$values['custom_machine_name']) || !isset($values['machine_name'])) {
+    if ((isset($values['custom_machine_name']) && !$values['custom_machine_name']) || !isset($values['machine_name']) || !isset($overrides['machine_name'])) {
       $values['machine_name'] = $node->nid;
     }
     unset($values['custom_machine_name']);
-
-    if ((isset($values['custom_block_title']) && !$values['custom_block_title']) || !isset($values['block_title'])) {
+    if ((isset($values['custom_block_title']) && !$values['custom_block_title']) || !isset($values['block_title']) || !isset($overrides['block_title'])) {
       $values['block_title'] = $node->title;
     }
     unset($values['custom_block_title']);
@@ -462,7 +463,9 @@ function nodeblock_node_insert($node) {
         );
 
         drupal_alter('block_info', $blocks, $theme, $blocks);
-        drupal_write_record('block', $blocks['nodeblock'][$node->nid]);
+        if (isset($blocks['nodeblock'][$node->nid])) {
+          drupal_write_record('block', $blocks['nodeblock'][$node->nid]);
+        }
       }
     }
   }
@@ -475,25 +478,32 @@ function nodeblock_block_info() {
   $blocks = array();
   if (_nodeblock_table_exists()) {
     $types = node_type_get_types();
-    foreach ($types as $type) {
-      if (nodeblock_type_enabled($type)) {
-        // Fetch all nodes of this type, excluding translations.
-        $request = db_select('node', 'n')
-          ->fields('n', array('title', 'nid'))
-          ->condition('n.type', $type->type)
-          ->condition(db_or()->where('n.nid = n.tnid')->condition('n.tnid', 0));
 
-        $request->addJoin('INNER', 'nodeblock', 'nb', 'nb.nid = n.nid');
-        $request->fields('nb', array('machine_name'))
-          ->condition('nb.enabled', 1);
+    // Deselect types that aren't nodeblock enabled
+    foreach ($types as $key => $type) {
+      if(!nodeblock_type_enabled($type)){
+        unset($types[$key]);
+      }
+    }
 
-        $results = $request->execute();
-        foreach ($results as $node) {
-          $blocks[$node->machine_name] = array('info' => $node->title, 'nid' => $node->nid);
-        }
+    if ($types) {
+      // Fetch all nodes of the selected types, excluding translations.
+      $request = db_select('node', 'n')
+        ->fields('n', array('title', 'nid'))
+        ->condition('n.type', array_keys($types), 'IN')
+        ->condition(db_or()->where('n.nid = n.tnid')->condition('n.tnid', 0));
+
+      $request->addJoin('INNER', 'nodeblock', 'nb', 'nb.nid = n.nid');
+      $request->fields('nb', array('machine_name'))
+        ->condition('nb.enabled', 1);
+
+      $results = $request->execute();
+      foreach ($results as $node) {
+        $blocks[$node->machine_name] = array('info' => $node->title, 'nid' => $node->nid);
       }
     }
   }
+
   return $blocks;
 }
 
@@ -503,6 +513,7 @@ function nodeblock_block_info() {
 function nodeblock_load_nodeblock($machine_name) {
   $nid = db_select('nodeblock', 'nb')
     ->condition('machine_name', $machine_name)
+    ->condition('enabled', 1)
     ->fields('nb', array('nid'))
     ->execute()->fetchColumn();
   if ($nid) {
@@ -549,7 +560,7 @@ function nodeblock_block_view($delta = '') {
     $view_mode = nodeblock_type_view_mode($node->type);
   }
   $block = array(
-    'subject' => check_plain($node->nodeblock['block_title']),
+    'title' => $node->nodeblock['block_title'],
     'content' => node_view($node, $view_mode),
     '#node' => $node,
   );
