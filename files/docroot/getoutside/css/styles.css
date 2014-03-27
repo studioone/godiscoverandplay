@@ -403,3 +403,5 @@ body, *[data-role=page] {
 .cin-custom-pos {
 	left: -19px !important;
 }
+
+.city-label.left.l3.hou-custom-pos{ left:27px; }

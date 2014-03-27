@@ -2924,5 +2924,197 @@
         ],
         "city": "Cincinnati",
         "activity": "Experience"
+    },
+    {
+        "image": "CARDIO/hike.gif",
+        "content": "Hike or bike along Lady Bird Lake",
+        "urls": [
+            {
+                "text": "Lady Bird Lake",
+                "url": "http://austintexas.gov/page/lady-bird-lake"
+            }
+        ],
+        "city": "Austin",
+        "activity": "Cardio"
+    },
+    {
+        "image": "ENERGIZE/splash.gif",
+        "content": "Swim at Barton Springs Pool",
+        "urls": [
+            {
+                "text": "Barton Springs Pool",
+                "url": "http://austintexas.gov/department/barton-springs-pool"
+            }
+        ],
+        "city": "Austin",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/run.gif",
+        "content": "Jog near Mueller's Lake Park",
+        "urls": [
+            {
+                "text": "Mueller's Lake Park",
+                "url": "http://www.muelleraustin.com/thinking-green/parks/"
+            }
+        ],
+        "city": "Austin",
+        "activity": "Cardio"
+    },
+    {
+        "image": "CARDIO/walk.gif",
+        "content": "Walk through Walnut Creek Metropolitan Park",
+        "urls": [
+            {
+                "text": "Walnut Creek Metropolitan Park",
+                "url": "http://austinparks.org/our-parks.html?parkid=368"
+            }
+        ],
+        "city": "Austin",
+        "activity": "Cardio"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": "Rent a boat at Zilker Park Boat Rentals",
+        "urls": [
+            {
+                "text": "Zilker Park Boat Rentals",
+                "url": "http://www.zilkerboats.com/"
+            }
+        ],
+        "city": "Austin",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/weights.gif",
+        "content": "Get in shape with Barre Fitness at Dancers Shape",
+        "urls": [
+            {
+                "text": "Dancers Shape",
+                "url": "http://dancersshape.com/"
+            }
+        ],
+        "city": "Austin",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/climb.gif",
+        "content": "Rock climb at Barton Creek Greenbelt East",
+        "urls": [
+            {
+                "text": "Barton Creek Greenbelt East",
+                "url": "http://www.austinparks.org/our-parks.html?parkid=206"
+            }
+        ],
+        "city": "Austin",
+        "activity": "Strength"
+    },
+    {
+        "image": "STRENGTH/row.gif",
+        "content": "Rent a bike/kayak at Austin Water Bikes",
+        "urls": [
+            {
+                "text": "Austin Water Bikes",
+                "url": "http://austinwaterbikes.com/"
+            }
+        ],
+        "city": "Austin",
+        "activity": "Strength"
+    },
+    {
+        "image": "ENERGIZE/bench.gif",
+        "content": "Catch up with a friend on a bench in Mayfield Park",
+        "urls": [
+            {
+                "text": "Mayfield Park",
+                "url": "http://mayfieldpark.org"
+            }
+        ],
+        "city": "Austin",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/picnic.gif",
+        "content": "Enjoy a picnic at Zilker Park",
+        "urls": [
+            {
+                "text": "Zilker Park",
+                "url": "http://austinparks.org/our-parks.html?parkid=386"
+            }
+        ],
+        "city": "Austin",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/splash.gif",
+        "content": "Splash around by the Littlefield Fountain",
+        "urls": [
+            {
+                "text": "Littlefield Fountain",
+                "url": "http://www.texasexes.org/uthistory/campus-tour.aspx?tourstop=0"
+            }
+        ],
+        "city": "Austin",
+        "activity": "Energize"
+    },
+    {
+        "image": "ENERGIZE/watch.gif",
+        "content": "Enjoy breathtaking views from Mount Bonnell",
+        "urls": [
+            {
+                "text": "Mount Bonnell",
+                "url": "http://www.austinparks.org/our-parks.html?parkid=287"
+            }
+        ],
+        "city": "Austin",
+        "activity": "Energize"
+    },
+    {
+        "image": "EXPERIENCE/walk.gif",
+        "content": "Walk through the Cathedral of Junk",
+        "urls": [
+            {
+                "text": "Cathedral of Junk",
+                "url": "http://www.roadsideamerica.com/story/7816"
+            }
+        ],
+        "city": "Austin",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/garden.gif",
+        "content": "Play with Fido at Red Bud Isle",
+        "urls": [
+            {
+                "text": "Red Bud Isle",
+                "url": "http://www.friendsofredbudisle.org/"
+            }
+        ],
+        "city": "Austin",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/met.gif",
+        "content": "Enjoy art and nature at Umlauf Sculpture Garden & Museum",
+        "urls": [
+            {
+                "text": "Umlauf Sculpture Garden & Museum",
+                "url": "http://umlaufsculpture.org/"
+            }
+        ],
+        "city": "Austin",
+        "activity": "Experience"
+    },
+    {
+        "image": "EXPERIENCE/view.gif",
+        "content": "Explore the shops on South Congress Avenue",
+        "urls": [
+            {
+                "text": "South Congress Avenue",
+                "url": "http://www.austintexas.org/listings/South-Congress-Ave-SoCo-/4359"
+            }
+        ],
+        "city": "Austin",
+        "activity": "Experience"
     }
 ]

@@ -89,6 +89,10 @@ var CityRing = Backbone.View.extend({
 			$label.addClass('cin-custom-pos');
 		}
 		
+		if(this.model.get('label') == "HOU"){
+			$label.addClass('hou-custom-pos');
+		}
+		
 		this.$el.append($label);
 
 		this.$el.data('name', this.model.get('name'));

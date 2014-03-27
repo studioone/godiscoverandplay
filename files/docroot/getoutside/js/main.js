@@ -76,6 +76,12 @@ var cities = [
 		y: 117,
 		name: 'Cincinnati',
 		label: 'CIN'
+	},
+	{
+		x: 168,
+		y: 210,
+		name: 'Austin',
+		label: 'AUS'
 	}
 ];
 
