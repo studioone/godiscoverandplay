@@ -559,8 +559,10 @@ function nodeblock_block_view($delta = '') {
   if ($view_mode == 'node_block_default') {
     $view_mode = nodeblock_type_view_mode($node->type);
   }
+
+  $title = $node->nodeblock['block_title'];
   $block = array(
-    'title' => $node->nodeblock['block_title'],
+    'subject' => $title == '<none>' ? '' : check_plain($title),
     'content' => node_view($node, $view_mode),
     '#node' => $node,
   );
@@ -592,50 +594,51 @@ function nodeblock_block_configure($delta = '') {
   $form = array();
 
   $node = nodeblock_load_nodeblock($delta);
-
-  $view_modes = array();
-  $view_modes['node_block_default'] = t('Default');
-  $view_modes += nodeblock_get_view_modes($node->type);
-  $options = array(
-    'node_block_default' => t('Default'),
-    '0' => t('Hide'),
-    '1' => t('Show'),
-  );
-
-   // Add a Node Block Group
-  $form['nodeblock'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Node Block Settings'),
-    '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
-    '#attributes' => array(
-      'class' => array('node-block-settings'),
-    ),
-    '#weight' => 0,
-    'view_mode' => array(
-      '#type' => 'select',
-      '#options' => $view_modes,
-      '#title' => t('View mode'),
-      '#default_value' => $node->nodeblock['view_mode'],
-      '#group' => 'nodeblock',
-    ),
-    'node_link' => array(
-      '#type' => 'select',
-      '#options' => $options,
-      '#default_value' => $node->nodeblock['node_link'],
-      '#title' => t('Node Link Display'),
-      '#group' => 'nodeblock',
-    ),
-  );
-
-  if (module_exists('comment')) {
-    $form['nodeblock']['comment_link'] = array(
-      '#type' => 'select',
-      '#options' => $options,
-      '#default_value' => $node->nodeblock['comment_link'],
-      '#title' => t('Node Comments Display'),
-      '#group' => 'nodeblock',
+  if ($node) {
+    $view_modes = array();
+    $view_modes['node_block_default'] = t('Default');
+    $view_modes += nodeblock_get_view_modes($node->type);
+    $options = array(
+      'node_block_default' => t('Default'),
+      '0' => t('Hide'),
+      '1' => t('Show'),
     );
+
+     // Add a Node Block Group
+    $form['nodeblock'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Node Block Settings'),
+      '#collapsible' => TRUE,
+      '#collapsed' => FALSE,
+      '#attributes' => array(
+        'class' => array('node-block-settings'),
+      ),
+      '#weight' => 0,
+      'view_mode' => array(
+        '#type' => 'select',
+        '#options' => $view_modes,
+        '#title' => t('View mode'),
+        '#default_value' => $node->nodeblock['view_mode'],
+        '#group' => 'nodeblock',
+      ),
+      'node_link' => array(
+        '#type' => 'select',
+        '#options' => $options,
+        '#default_value' => $node->nodeblock['node_link'],
+        '#title' => t('Node Link Display'),
+        '#group' => 'nodeblock',
+      ),
+    );
+
+    if (module_exists('comment')) {
+      $form['nodeblock']['comment_link'] = array(
+        '#type' => 'select',
+        '#options' => $options,
+        '#default_value' => $node->nodeblock['comment_link'],
+        '#title' => t('Node Comments Display'),
+        '#group' => 'nodeblock',
+      );
+    }
   }
 
   return $form;

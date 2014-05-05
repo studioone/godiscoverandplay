@@ -120,6 +120,7 @@ function nodeblock_update_7101() {
  * Adding a new nodeblock table and create entries for all existing nodeblocks.
  */
 function nodeblock_update_7102() {
+  module_load_include('module', 'nodeblock');
   if (!db_table_exists('nodeblock')) {
     $schema = nodeblock_schema();
     db_create_table('nodeblock', $schema['nodeblock']);

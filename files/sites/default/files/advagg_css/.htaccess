@@ -32,4 +32,5 @@
       Header append Cache-Control "no-transform, public"
     </IfModule>
   </IfModule>
+  ForceType text/css
 </FilesMatch>

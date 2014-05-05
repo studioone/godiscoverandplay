@@ -212,7 +212,8 @@ hr {
 
 /* Text elements */
 p {
-  margin-bottom: 2em;
+  /*margin-bottom: 2em;*/
+  margin-bottom: 1em;
 }
 ul, ol {
   margin: 0 0 1em 1.5em;
@@ -1172,10 +1173,10 @@ ol.search-results { padding-left: 0; }
 /* Poll, Buttons, Form
 /*-------------------------------------------*/
 .poll .vote-form .choices .title {
-  /*font-size: 14px;*/
-  font-size: 16px;
+  font-size: 12px;
   font-weight: normal;
   line-height: 2;
+  padding: 0px 5px 0px 5px;
 }
 
 .poll .vote-form .choices {
@@ -2088,4 +2089,59 @@ display: none;
 
 .view-bottom-advertisement h2{
 display: none;
+}
+
+/*Front Page Slideshow - by Sekou*/
+.views-slideshow-controls-bottom .views-slideshow-pager-field-item { 
+  float: left;
+  margin: 20px 6px; 
+  top: -170px;
+  position: relative;
+  padding: 10px 0px 0 0px;
+} 
+
+.view-featured-slider {
+    background-color: #555;
+    border-bottom: 2px solid #ccc;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    margin: 0 0 2em;
+    position: relative;
+    max-height: 475px;
+}
+
+.views-field-field-slider-image {
+    border: medium none;
+    display: block;
+    height: auto;
+    /*padding: 0.7em 2% 0.3em;*/
+    padding: 10px 10px 0 25px;
+}
+
+.views-field-field-title{
+    color: #FFFFFF;
+    padding: 10px 0px 0 25px;
+    top: -130px;
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    width: 92%;
+    display: block;
+    background-color:#555;
+    opacity:0.6;
+    filter:alpha(opacity=60); /* For IE8 and earlier */
+}
+
+.views-field-field-description{
+    color: #FFFFFF;
+    padding: 0px 0px 0 25px;
+    top: -130px;
+    position: relative;
+    font-size: 15px;
+    font-weight: bold;
+    width: 92%;
+    display: block;
+    background-color:#555;
+    opacity:0.6;
+    filter:alpha(opacity=60); /* For IE8 and earlier */
 }
